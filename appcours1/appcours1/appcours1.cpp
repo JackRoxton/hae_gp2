@@ -3,10 +3,29 @@
 
 #include "pch.h"
 #include <iostream>
+#include "A.hpp"
+
+namespace GP2 {
+	//A :: trace();
+}
 
 int main()
 {
     std::cout << "Hello World!\n"; 
+
+	printf("0 \n");
+
+	printf("0.5f \n");
+
+	printf("%s \n","toto");
+
+	for (int j = 0; j < 2; j++)
+	{
+		for (int i = 1; i < 10; i++)
+		{
+			printf("%d", i);
+		}
+	}
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
