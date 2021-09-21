@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="A.hpp" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Toto.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="appcours1.cpp" />

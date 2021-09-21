@@ -3,7 +3,8 @@
 
 #include "pch.h"
 #include <iostream>
-#include "A.hpp"
+#include "Toto.h"
+//#include "A.hpp"
 
 namespace GP2 {
 	//A :: trace();
@@ -11,12 +12,9 @@ namespace GP2 {
 
 int main()
 {
-    std::cout << "Hello World!\n"; 
-
+    /*std::cout << "Hello World!\n"; 
 	printf("0 \n");
-
 	printf("0.5f \n");
-
 	printf("%s \n","toto");
 
 	for (int j = 0; j < 2; j++)
@@ -25,7 +23,18 @@ int main()
 		{
 			printf("%d", i);
 		}
-	}
+	}*/
+	printf("0\n");
+
+	Toto tStatic;
+
+	printf("%f",tStatic.x);
+
+
+
+
+	//Toto*
+	return 0;
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
