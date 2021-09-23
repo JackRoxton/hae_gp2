@@ -9,7 +9,7 @@
 
 /*namespace GP2 {
 	A :: trace();
-}*/
+}
 
 struct Vec {
 	float x = 0;
@@ -52,7 +52,35 @@ struct Vec4 {
 		return res;
 	}
 
-};
+};*/
+
+int Strlen(const char* chaine) {
+	int res = 0;
+	while (chaine[res] != 0) {
+		res = res + 1;
+	}
+	return res;
+}
+
+int Countc(const char* maChaine, char c) {
+	//renvoie le nombre d'occurences de c dans ma chaine
+	//(maChaine est un tableau de char)
+	//parcourir le tableau
+	//si l'élément à l'idx courant = c incrémenter le résultat
+	//renvoyer le résultat
+	int res = 0;
+	int len = Strlen(maChaine);
+
+	for (int i = 0; i < len; i++)
+	{
+		if (maChaine[i] == c) {
+			res = res + 1;
+		}
+	}
+
+	return res;
+}
+
 
 int main()
 {
@@ -73,9 +101,6 @@ int main()
 	Toto tStatic;
 
 	printf("%f",tStatic.x);
-
-
-
 
 	//Toto*
 	return 0;
@@ -108,9 +133,11 @@ int main()
 	
 	//vec2.Incr();
 	//Vec4 res = vec1.Add(vec2);
-	Vec4 res = vec1.Div(vec2);*/
+	Vec4 res = vec1.Div(vec2);
 
-	IntArray arr;
+	//int* arrData = nullptr;
+	IntArray arr(16);
+	//arrData = arr.data;
 	for (int i = 0; i < 16; i++)
 	{
 		arr.set(i, i * i);
@@ -121,6 +148,16 @@ int main()
 	};
 	printf("\n");
 
+	arr.get(17);*/
+
+	int nbA = Countc("sapin", 'a');
+	printf("nombre de a:%d\n", nbA);
+
+	int nbB = Countc("alphabet", 'a');
+	printf("nombre de a:%d\n", nbB);
+
+	int nbC = Countc("banane", 'n');
+	printf("nombre de n:%d\n", nbC);
 
 	return 0;
 	
