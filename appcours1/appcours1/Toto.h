@@ -1,4 +1,4 @@
 #pragma once
-struct Toto {
+/*struct Toto {
 	float x = 0.0f;
-};
+};*/
