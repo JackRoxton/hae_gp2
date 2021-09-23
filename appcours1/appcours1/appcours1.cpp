@@ -3,6 +3,7 @@
 
 #include "pch.h"
 #include <iostream>
+#include "IntArray.hpp"
 /*#include "Toto.h"
 #include "A.hpp"*/
 
@@ -91,7 +92,7 @@ int main()
 	toto->x = 1;
 	(*toto).y = 2;
 
-	printf("%f %f", (*toto).x, toto->y);*/
+	printf("%f %f", (*toto).x, toto->y);
 
 	Vec4 vec1;
 	vec1.x = 3;
@@ -107,8 +108,22 @@ int main()
 	
 	//vec2.Incr();
 	//Vec4 res = vec1.Add(vec2);
-	Vec4 res = vec1.Div(vec2);
+	Vec4 res = vec1.Div(vec2);*/
 
+	IntArray arr;
+	for (int i = 0; i < 16; i++)
+	{
+		arr.set(i, i * i);
+	};
+	for (int i = 0; i < 16; i++)
+	{
+		printf("%d ", arr.get(i));
+	};
+	printf("\n");
+
+
+	return 0;
+	
 }
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
