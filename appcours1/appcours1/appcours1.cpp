@@ -4,6 +4,7 @@
 #include "pch.h"
 #include <iostream>
 #include "IntArray.hpp"
+#include "CList.hpp"
 /*#include "Toto.h"
 #include "A.hpp"*/
 
@@ -52,15 +53,8 @@ struct Vec4 {
 		return res;
 	}
 
-};*/
+};
 
-int Strlen(const char* chaine) {
-	int res = 0;
-	while (chaine[res] != 0) {
-		res = res + 1;
-	}
-	return res;
-}
 
 int Countc(const char* maChaine, char c) {
 	//renvoie le nombre d'occurences de c dans ma chaine
@@ -89,9 +83,17 @@ void Strcpy(char* chain, const char* cpy) {
 }
 
 void Strncpy(char* chain, const char* cpy, int len) {
-	for (int i = 0; i <= len; i++) {
+	for (int i = 0; i < len; i++) {
 		chain[i] = cpy[i];
 	}
+}*/
+
+int Strlen(const char* chaine) {
+	int res = 0;
+	while (chaine[res] != 0) {
+		res = res + 1;
+	}
+	return res;
 }
 
 int main()
@@ -161,7 +163,6 @@ int main()
 	printf("\n");
 
 	arr.get(17);*/
-
 	/*int nbA = Countc("sapin", 'a');
 	printf("nombre de a:%d\n", nbA);
 
@@ -169,29 +170,46 @@ int main()
 	printf("nombre de a:%d\n", nbB);
 
 	int nbC = Countc("banane", 'n');
-	printf("nombre de n:%d\n", nbC);*/
+	printf("nombre de n:%d\n", nbC);
 
-
-
-	char str1[4] = "oui";
-	char str2[4] = "non";
+	char str1[] = "oui";
+	char str2[] = "non";
 
 	printf("%s %s\n", str1, str2);
 
 	Strncpy(str2, str1 , 1);
 
-	printf("%s %s\n",str1, str2);
+	printf("%s %s\n",str1, str2);*/
+
+
+	//en partie à mettre dans le constructeur ?
+
+	CList LinkedList;
+
+	Node first;
+	first.value = 1;
+
+	for (int i = 2; i < 10; i++) {
+		Node nod;
+		if (i = 1) { 
+			Node* nod;
+			first.next = nod; 
+		}
+		else {
+
+		}
+		nod.value = i;
+	}
+	
+	Node last;
+	last.value = 10;
+
+	while (LinkedList.current.next != NULL)
+	{
+		printf(LinkedList.current.value);
+		LinkedList.Next();
+	}
 
 	return 0;
 	
 }
-
-// Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
-// Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
-// Conseils pour bien démarrer : 
-//   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
-//   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
-//   3. Utilisez la fenêtre Sortie pour voir la sortie de la génération et d'autres messages.
-//   4. Utilisez la fenêtre Liste d'erreurs pour voir les erreurs.
-//   5. Accédez à Projet > Ajouter un nouvel élément pour créer des fichiers de code, ou à Projet > Ajouter un élément existant pour ajouter des fichiers de code existants au projet.
-//   6. Pour rouvrir ce projet plus tard, accédez à Fichier > Ouvrir > Projet et sélectionnez le fichier .sln.
