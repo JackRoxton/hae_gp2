@@ -88,6 +88,12 @@ void Strcpy(char* chain, const char* cpy) {
 	}
 }
 
+void Strncpy(char* chain, const char* cpy, int len) {
+	for (int i = 0; i <= len; i++) {
+		chain[i] = cpy[i];
+	}
+}
+
 int main()
 {
 	/*std::cout << "Hello World!\n";
@@ -172,7 +178,7 @@ int main()
 
 	printf("%s %s\n", str1, str2);
 
-	Strcpy(str2, str1);
+	Strncpy(str2, str1 , 1);
 
 	printf("%s %s\n",str1, str2);
 
