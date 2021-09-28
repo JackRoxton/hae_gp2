@@ -81,6 +81,12 @@ int Countc(const char* maChaine, char c) {
 	return res;
 }
 
+void Strcpy(char* chain, const char* cpy) {
+	int len = Strlen(cpy);
+	for (int i = 0; i <= len; i++){
+		chain[i] = cpy[i];
+	}
+}
 
 int main()
 {
@@ -150,14 +156,25 @@ int main()
 
 	arr.get(17);*/
 
-	int nbA = Countc("sapin", 'a');
+	/*int nbA = Countc("sapin", 'a');
 	printf("nombre de a:%d\n", nbA);
 
 	int nbB = Countc("alphabet", 'a');
 	printf("nombre de a:%d\n", nbB);
 
 	int nbC = Countc("banane", 'n');
-	printf("nombre de n:%d\n", nbC);
+	printf("nombre de n:%d\n", nbC);*/
+
+
+
+	char str1[4] = "oui";
+	char str2[4] = "non";
+
+	printf("%s %s\n", str1, str2);
+
+	Strcpy(str2, str1);
+
+	printf("%s %s\n",str1, str2);
 
 	return 0;
 	
@@ -165,7 +182,6 @@ int main()
 
 // Exécuter le programme : Ctrl+F5 ou menu Déboguer > Exécuter sans débogage
 // Déboguer le programme : F5 ou menu Déboguer > Démarrer le débogage
-
 // Conseils pour bien démarrer : 
 //   1. Utilisez la fenêtre Explorateur de solutions pour ajouter des fichiers et les gérer.
 //   2. Utilisez la fenêtre Team Explorer pour vous connecter au contrôle de code source.
