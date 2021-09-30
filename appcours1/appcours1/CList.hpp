@@ -24,9 +24,29 @@ public:
 		first->next = last;
 	}
 
-	void Add(Node* nod) {
+	void AddFirst(Node* nod) {
+		nod->next = first;
+		first = nod;
+	}
+
+	void AddLast(Node* nod) {
 		last->next = nod;
 		last = last->next;
+	}
+
+	void RemoveFirst() {
+		Node* del = first;
+		first->next = first;
+		delete del;
+	}
+
+	void RemoveLast(){
+		Node* search = first;
+		while (search->next != last){
+			search = search->next;
+		}
+		last = search->next;
+		delete search;
 	}
 
 	void Next() {

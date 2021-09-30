@@ -5,8 +5,7 @@
 #include <iostream>
 #include "IntArray.hpp"
 #include "CList.hpp"
-/*#include "Toto.h"
-#include "A.hpp"*/
+
 
 /*namespace GP2 {
 	A :: trace();
@@ -181,9 +180,6 @@ int main()
 
 	printf("%s %s\n",str1, str2);*/
 
-
-	//en partie à mettre dans le constructeur ?
-
 	CList LinkedList;
 
 	LinkedList.first->value = 0;
@@ -193,12 +189,13 @@ int main()
 		Node* next = new Node();
 		next->value = i;
 		nod.next = next;
-		LinkedList.Add(next);
+		LinkedList.AddLast(next);
 		nod = *next;
 	}
 
 	LinkedList.Print();
 
+
+
 	return 0;
-	
 }
