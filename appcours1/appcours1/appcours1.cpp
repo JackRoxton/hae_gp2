@@ -4,7 +4,8 @@
 #include "pch.h"
 #include <iostream>
 #include "IntArray.hpp"
-#include "CList.hpp"
+#include "BTree.hpp"
+//#include "CList.hpp"
 
 
 /*namespace GP2 {
@@ -178,7 +179,7 @@ int main()
 
 	Strncpy(str2, str1 , 1);
 
-	printf("%s %s\n",str1, str2);*/
+	printf("%s %s\n",str1, str2);
 
 	CList LinkedList;
 
@@ -193,9 +194,15 @@ int main()
 		nod = *next;
 	}
 
-	LinkedList.Print();
+	LinkedList.Print();*/
 
+	BTree BinaryTree;
 
+	for (int i = 0; i < 10; i++) {
+		Node* nod = new Node();
+		nod->value = i;
+		BinaryTree.Add(nod);
+	}
 
 	return 0;
 }
