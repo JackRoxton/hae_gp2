@@ -186,29 +186,18 @@ int main()
 
 	CList LinkedList;
 
-	Node first;
-	first.value = 1;
+	LinkedList.first->value = 0;
+	Node nod = *LinkedList.first;
 
 	for (int i = 2; i < 10; i++) {
-		Node nod;
-		if (i = 1) { 
-			Node* nod;
-			first.next = nod; 
-		}
-		else {
-
-		}
-		nod.value = i;
+		Node* next = new Node();
+		next->value = i;
+		nod.next = next;
+		LinkedList.Add(next);
+		nod = *next;
 	}
-	
-	Node last;
-	last.value = 10;
 
-	while (LinkedList.current.next != NULL)
-	{
-		printf(LinkedList.current.value);
-		LinkedList.Next();
-	}
+	LinkedList.Print();
 
 	return 0;
 	

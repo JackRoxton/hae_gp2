@@ -12,16 +12,35 @@ public :
 
 class CList {
 public:
-	int* data = nullptr;
-	Node* first = NULL;
-	Node* current = first;
-	Node* last = NULL;
+	Node* first;
+	Node* current;
+	Node* last;
 
 	CList() {
-		
+		first = new Node();
+		last = new Node();
+
+		current = first;
+		first->next = last;
+	}
+
+	void Add(Node* nod) {
+		last->next = nod;
+		last = last->next;
 	}
 
 	void Next() {
-		current.next = current;
+		current = current->next;
+	}
+
+	void Print() {
+		current = first;
+		printf("printing\n");
+
+		while (current != nullptr) {
+			printf("%d\n",current->value);
+			Next();
+		}
+		printf("%d",last->value);
 	}
 };
