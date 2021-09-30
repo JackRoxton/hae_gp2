@@ -29,6 +29,18 @@ public:
 		first = nod;
 	}
 
+	void AddAfter(Node* nod) {
+		if (current->next == nullptr) {
+			current->next = nod;
+		}
+		else {
+			Node* temp = current->next;
+			current->next = nod;
+			nod->next = temp;
+			delete temp;
+		}
+	}
+
 	void AddLast(Node* nod) {
 		last->next = nod;
 		last = last->next;
@@ -38,6 +50,15 @@ public:
 		Node* del = first;
 		first->next = first;
 		delete del;
+	}
+
+	void RemoveAfter() {
+		if (current->next == nullptr) {
+			return;
+		}
+		Node* temp = current->next;
+		current->next = current->next->next;
+		delete temp;
 	}
 
 	void RemoveLast(){
