@@ -53,7 +53,7 @@ struct Vec4 {
 		return res;
 	}
 
-};*/
+};
 
 int Strlen(const char* chaine) {
 	int res = 0;
@@ -100,12 +100,12 @@ void Strncpy(char* chain, const char* cpy, int len) {
 	}
 }
 void StrncpyHard(char* chain, const char* cpy, int len) {
-	/*while (len-- && *cpy) {
+	while (len-- && *cpy) {
 		*chain = *cpy;
 		chain++;
 		cpy++;
 	}
-	*chain = 0;*/
+	*chain = 0;
 	while (*cpy && len) {
 		*chain = *cpy;
 		chain++;
@@ -113,7 +113,7 @@ void StrncpyHard(char* chain, const char* cpy, int len) {
 		len--;
 	}
 	*chain = 0;
-}
+}*/
 
 
 int main()
@@ -215,7 +215,6 @@ int main()
 	}
 
 	LinkedList.Print();*/
-
 	/*BTree BinaryTree;
 
 	for (int i = 0; i < 10; i++) {
@@ -224,9 +223,14 @@ int main()
 		BinaryTree.Add(nod);
 	}*/
 
-	char chaine[250] = {};
-	StrncpyHard(chaine, "sac a sapin", 3);
-	printf(chaine);
+	IntArray toto(16);
+	toto.resize(18);
+
+	for (int i = 0; i < 18; i++) {
+		toto.set(i, i);
+	}
+	toto.insertAt(3, 25);
+	toto.print();
 
 	return 0;
 }

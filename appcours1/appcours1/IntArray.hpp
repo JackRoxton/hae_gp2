@@ -1,4 +1,4 @@
-#pragma once
+#include <algorithm> //pour std::max<int>()
 //# include <cstdlib> #include <cstring>
 class IntArray {
 	int* data = nullptr;
@@ -40,5 +40,46 @@ public:
 		}
 		return data[idx];
 	}
+
+	void resize(int nSize) {
+		if (length >= nSize) {
+			return;
+		}
+		
+		data = (int*) realloc(data, nSize * sizeof(int));
+		memset(data+length,0,(nSize-length)*sizeof(int));
+
+		for (int i = length; i < nSize; i++) {
+			data[i, 0];
+		}
+
+		length = nSize;
+
+	}
+
+	void insertAt(int idx, int value) {
+		int len = length;
+		resize(std::max<int>(idx+1,length + 1));
+		for (/*len*/; len > idx; len--) {
+			//int temp = data[len];
+			data[len] = data[len - 1];
+			//data[len - 1] = temp;
+		}
+		data[idx] = value;
+
+		/*memmove
+		int len = length;
+		resize(std::max<int>(idx+1,length + 1));
+		memmove(&data[idx+1], &data[idx],(len-idx)*sizeof(int));
+		data[idx]=value;
+		*/
+	}
+
+	void print() {
+		for (int i=0; i < length; i++) {
+			printf("%d\n", data[i]);
+		}
+	}
+
+
 };
-//realloc et template
