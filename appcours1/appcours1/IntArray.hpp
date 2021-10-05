@@ -82,6 +82,15 @@ public:
 		}
 	}
 
+	static int cmp(const void* v0, const void* v1) {
+		return *(int*)v0 - *(int*)v1;
+	}
+
+	void qsort() {
+		::qsort(data, length, sizeof(int), cmp);
+
+	}
+
 	void print() {
 		for (int i=0; i < length; i++) {
 			printf("%d\n", data[i]);

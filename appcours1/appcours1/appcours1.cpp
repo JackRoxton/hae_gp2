@@ -230,6 +230,7 @@ int main()
 		toto.set(i, i);
 	}
 	toto.insertAt(3, 25);
+	toto.qsort();
 	toto.print();
 
 	return 0;
