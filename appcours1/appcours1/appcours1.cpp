@@ -53,15 +53,17 @@ struct Vec4 {
 		return res;
 	}
 
-};
+};*/
 
+int Strlen(const char* chaine) {
+	int res = 0;
+	while (chaine[res] != 0) {
+		res = res + 1;
+	}
+	return res;
+}
 
 int Countc(const char* maChaine, char c) {
-	//renvoie le nombre d'occurences de c dans ma chaine
-	//(maChaine est un tableau de char)
-	//parcourir le tableau
-	//si l'élément à l'idx courant = c incrémenter le résultat
-	//renvoyer le résultat
 	int res = 0;
 	int len = Strlen(maChaine);
 
@@ -77,24 +79,42 @@ int Countc(const char* maChaine, char c) {
 
 void Strcpy(char* chain, const char* cpy) {
 	int len = Strlen(cpy);
-	for (int i = 0; i <= len; i++){
+	for (int i = 0; i < len; i++){
 		chain[i] = cpy[i];
 	}
+	chain[len] = 0;
+}
+
+void StrcpyHard(char* chain, const char* cpy) {
+	while (*cpy) {
+		*chain = *cpy;
+		chain++;
+		cpy++;
+	}
+	*chain = 0;
 }
 
 void Strncpy(char* chain, const char* cpy, int len) {
 	for (int i = 0; i < len; i++) {
 		chain[i] = cpy[i];
 	}
-}*/
-
-int Strlen(const char* chaine) {
-	int res = 0;
-	while (chaine[res] != 0) {
-		res = res + 1;
-	}
-	return res;
 }
+void StrncpyHard(char* chain, const char* cpy, int len) {
+	/*while (len-- && *cpy) {
+		*chain = *cpy;
+		chain++;
+		cpy++;
+	}
+	*chain = 0;*/
+	while (*cpy && len) {
+		*chain = *cpy;
+		chain++;
+		cpy++;
+		len--;
+	}
+	*chain = 0;
+}
+
 
 int main()
 {
@@ -196,13 +216,17 @@ int main()
 
 	LinkedList.Print();*/
 
-	BTree BinaryTree;
+	/*BTree BinaryTree;
 
 	for (int i = 0; i < 10; i++) {
 		Node* nod = new Node();
 		nod->value = i;
 		BinaryTree.Add(nod);
-	}
+	}*/
+
+	char chaine[250] = {};
+	StrncpyHard(chaine, "sac a sapin", 3);
+	printf(chaine);
 
 	return 0;
 }
