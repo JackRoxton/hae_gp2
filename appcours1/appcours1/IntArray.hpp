@@ -75,6 +75,13 @@ public:
 		*/
 	}
 
+	void insert(int value) {
+		int idx = 0;
+		while ((idx < length) && (data[idx] < value)) {
+			insertAt(idx, value);
+		}
+	}
+
 	void print() {
 		for (int i=0; i < length; i++) {
 			printf("%d\n", data[i]);
