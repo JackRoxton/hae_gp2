@@ -1,5 +1,5 @@
 #pragma once
-/*struct Node {
+struct Node {
 
 public :
 	int value =  0;
@@ -84,4 +84,4 @@ public:
 		}
 		printf("%d",last->value);
 	}
-};*/
+};

@@ -154,12 +154,14 @@
     <ClInclude Include="A.hpp" />
     <ClInclude Include="CList.hpp" />
     <ClInclude Include="IntArray.hpp" />
+    <ClInclude Include="IntList.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Toto.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="appcours1.cpp" />
     <ClCompile Include="IntArray.cpp" />
+    <ClCompile Include="IntList.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

@@ -4,10 +4,11 @@
 #include "pch.h"
 #include <iostream>
 #include "IntArray.hpp"
-#include "BTree.hpp"
+//#include "BTree.hpp"
 //#include "CList.hpp"
+#include "IntList.hpp"
 
-
+#pragma region Previous
 /*namespace GP2 {
 	A :: trace();
 }
@@ -114,10 +115,13 @@ void StrncpyHard(char* chain, const char* cpy, int len) {
 	}
 	*chain = 0;
 }*/
+#pragma endregion
+
 
 
 int main()
 {
+#pragma region Previous
 	/*std::cout << "Hello World!\n";
 	printf("0 \n");
 	printf("0.5f \n");
@@ -222,8 +226,7 @@ int main()
 		nod->value = i;
 		BinaryTree.Add(nod);
 	}*/
-
-	IntArray toto(16);
+	/*IntArray toto(16);
 	toto.resize(18);
 
 	for (int i = 0; i < 18; i++) {
@@ -231,7 +234,23 @@ int main()
 	}
 	toto.insertAt(3, 25);
 	toto.qsort();
-	toto.print();
+	toto.print();*/
+#pragma endregion
+
+	IntList * tata = (IntList*)malloc(sizeof(IntList));
+	tata->value = 70;
+	tata->next = nullptr;
+
+	if (length(tata) != 1) throw "alarm?";
+	if (length(0) != 0) throw "alarm?";
+
+	tata = appendFirst(tata, 66);
+	IntList* t0 = appendLast(nullptr, 67);
+	IntList* t1 = appendLast(t0, 68);
+	IntList* t2 = appendLast(t1, 69);
+	t2 = appendLast(t2, 70);
+	
+	t2 = remove(t2, 68);
 
 	return 0;
 }
