@@ -3,10 +3,11 @@
 
 #include "pch.h"
 #include <iostream>
-#include "IntArray.hpp"
+//#include "IntArray.hpp"
 //#include "BTree.hpp"
 //#include "CList.hpp"
 #include "IntList.hpp"
+#include "IntTree.hpp"
 
 #pragma region Previous
 /*namespace GP2 {
@@ -234,8 +235,7 @@ int main()
 	}
 	toto.insertAt(3, 25);
 	toto.qsort();
-	toto.print();*/
-#pragma endregion
+	toto.print();
 
 	IntList * tata = (IntList*)malloc(sizeof(IntList));
 	tata->value = 70;
@@ -250,7 +250,8 @@ int main()
 	IntList* t2 = appendLast(t1, 69);
 	t2 = appendLast(t2, 70);
 	
-	t2 = remove(t2, 68);
+	t2 = remove(t2, 68);*/
+#pragma endregion
 
 	return 0;
 }
