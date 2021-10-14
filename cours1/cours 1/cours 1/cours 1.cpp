@@ -55,6 +55,14 @@ int add(int a, int b) {
 
 };
 
+int addEx(int a, int b,int tmp) {
+	if (b == 0) {
+		return a + tmp;
+	}
+
+	return 1 + addEx(a, b - 1, 1 + tmp);
+};
+
 
 int sub(int a, int b) {
 	return add(a, -b);
@@ -64,15 +72,25 @@ int mul(int a, int b) {
 	if (b == 0 || a == 0) {
 		return 0;
 	}
-	if (b == 1) {
-		return a;
-	}
 
-	if (b > 0) {
+	if (b < 0) {
 		return -mul(a, -b);
 	}
 	else {
-		return add(a, mul(a, sub(0,b)));
+		return add(a, mul(a, b - 1));
+	}
+};
+
+int mulEx(int a, int b, int tmp) {
+	if (b == 0 || a == 0) {
+		return tmp;
+	}
+
+	if (b < 0) {
+		return mulEx(-a, -b,tmp);
+	}
+	else {
+		return mulEx(a, b - 1,tmp+a);
 	}
 };
 
@@ -87,19 +105,191 @@ int divi(int a, int b) {
 	if (b == 1) {
 		return a;
 	}
+
+
+	if (a < 0)   return  sub(0, divi(sub(0, a), b));
 	if (a < b) {
 		return 0;
 	}
 
 	return 1 + divi(sub(a,b), b);
 };
+
+int diviEx(int a, int b, int tmp) {
+
+	if (a == 0) {
+		return tmp;
+	}
+	if (b == 0) {
+		return 0;
+	}
+	if (b == 1) {
+		return a + tmp;
+	}
+
+	if (a < 0) {
+		return tmp;
+	}
+	if (a < b) {
+		return tmp;
+	}
+
+	return diviEx(sub(a, b), b,tmp+1);
+};
+
 int mod(int a, int b) {
+	/*if (a == 0) {
+		return 0;
+	}
+	if (b == 0) {
+		return 0;
+	}
 
-}; // reste de la division
+	if (a >= b) {
+		return mod(sub(a, b),b);
+	}
+	else if(a<0){
+		return - mod(sub(-a,b),b);
+	}
+	else {
+		return a;
+	}*/
 
-int len(int vecX, int vecY); // avec les fonctions precédentes
+	return a - divi(a, b)*b;
+};
 
+/*int powe(int a, int coeff) {
+	if (coeff > 1) {
+		return 0;//powe(mul(a, a),coeff-1);
+	}
+	else if(coeff == 0){
+		return a;
+	}
+}
 
+int squr(int a) {
+	return powe(a,0.5);
+}*/
+
+int len(int vecX, int vecY) {
+	return (add(vecX, vecY));
+};
+
+int Strlen(const char* a) {
+	if (!*a) {
+		return *a;
+	}
+	a += 1;
+	return 1 + Strlen(a);
+}
+
+void Strcpy(char* a, const char* b) {
+	if (!*b) {
+		return;
+	}
+	*a = *b;
+	return Strcpy(a+1, b+1);
+}
+
+void Strncpy(char* a, const char* b, int nChr) {
+	if (nChr <= 0) {
+		return;
+	}
+	*a = *b;
+	return Strncpy(a+1, b+1, nChr-1);
+}
+
+void ZeroMemory(void* ptr, int nByt) { //met 0 partout dans nByt indiqué
+	if (nByt <= 0) {
+		return;
+	}
+	char* mem = (char*)ptr;
+	mem[0] = 0;
+	ZeroMemory(mem + 1, nByt - 1);
+}
+
+void Memcpy(void* dst, const void* src, int nByt) {
+	if (nByt <= 0) {
+		return;
+	}
+	char* mDst = (char*)dst;
+	const char* mSrc = (const char*)src;
+	mDst[0] = mSrc[0];
+	Memcpy(mDst + 1, mSrc + 1, nByt - 1);
+}
+
+const char* StrChr(const char* a, char b) {
+	if (a == nullptr) {
+		return nullptr;
+	}
+	if (!*a) {
+		return 0;
+	}
+	if (*a == b) {
+		return a;
+	}
+	return StrChr(a + 1, b);
+}
+
+bool IsPrefix(const char* a, const char* b) {
+	if (a == nullptr || b == nullptr) {
+		return false;
+	}
+	if (b[0] == 0) {
+		return true;
+	}
+	if (a[0] == b[0]) {
+		return IsPrefix(a + 1, b + 1);
+	}
+	return false;
+}
+
+const char* StrStr(const char* a, const char* b) {
+	if (a == nullptr || b == nullptr) {
+		return nullptr;
+	}
+	if (!*a||!*b) {
+		return 0;
+	}
+	if (IsPrefix(a,b)) {
+		return a;
+	}
+	return StrStr(a + 1, b);
+}
+
+char* FindEnd(char* a) {
+	if (a[0] != 0) {
+		return FindEnd(a + 1);
+	}
+	return a;
+}
+
+char* StrCat(char* a, const char* b) {
+	if (a == nullptr || b == nullptr) {
+		return nullptr;
+	}
+	char* end = FindEnd(a);
+	Strcpy(end, b);
+	return a;
+}
+
+bool StrCmp(const char* a, const char* b) {
+	if (a == nullptr || b == nullptr) {
+		throw "non";
+	}
+	if (a[0] == 0 && b[0] == 0) {
+		return 0;
+	}
+	if (b[0] > a[0]) {
+		return -1;
+	}
+	if (a[0] > b[0]) {
+		return 1;
+	}
+	if (a[0] == b[0]) {
+		return StrCmp(a + 1, b + 1);
+	}
+}
 
 
 int main()
@@ -129,12 +319,37 @@ int main()
 	printf("%s", s);
 
 	const char* toto = StrStr("dormir", "mir");*/
-
-
-	int toto = add(3, 5);
+	/*int toto = add(3, 5);
 	int tata = sub(3, 5);
-	//int tutu = mul(3, 5);
+	int tutu = mul(3, 5);
 	int tete = divi(6, 3);
+	int titi = mod(8, 3);
+	int tyty = len(4, 5);*/
+	/*int toto = Strlen("toto");
+	int tota = Strlen("bonjour");
+	char tata[4] = "oui";
+	char tato[4] = "non";
+	Strcpy(tata, tato);
+	Strncpy(tata, tato, 1);
+	char tutu[14] = "quelque chose";
+	ZeroMemory(tutu, 256);
+	char tuto[12] = "je sais pas";
+	Memcpy(tutu, tuto, 6);*/
+
+	const char* toto = "bonjour";
+	const char* tota = StrChr(toto, 'o');
+
+	const char* tata = "au revoir";
+	const char* tato = StrStr(tata, "revoir");
+
+	char titi[25] = "ah bon ";
+	char* tito = StrCat(titi, "bah oui");
+
+	bool tete = StrCmp("oui", "oui") == 0;
+	bool tetu = StrCmp("ouI", "oui") == -1;
+	bool teto = StrCmp("oui", "ouI") == 1;
+
+	int calcEx = mulEx(9, 3, 0);
 
 	return 0;
 }
