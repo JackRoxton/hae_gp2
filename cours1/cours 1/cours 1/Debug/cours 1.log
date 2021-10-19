@@ -1,2 +1,5 @@
 ﻿  cours 1.cpp
+c:\workspace_gp2\github\hae_gp2\cours1\cours 1\cours 1\cours 1.cpp(284): warning C4305: 'return' : troncation de 'int' à 'bool'
+c:\workspace_gp2\github\hae_gp2\cours1\cours 1\cours 1\cours 1.cpp(349): warning C4806: '==' : opération risquée : aucune valeur de type 'bool' promue en type 'int' ne peut être égale à la constante donnée
+c:\workspace_gp2\github\hae_gp2\cours1\cours 1\cours 1\cours 1.cpp(292): warning C4715: 'StrCmp' : les chemins de contrôle ne retournent pas tous une valeur
   cours 1.vcxproj -> C:\WorkSpace_gp2\GitHub\hae_gp2\cours1\cours 1\Debug\cours 1.exe

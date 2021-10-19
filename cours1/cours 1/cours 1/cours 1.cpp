@@ -199,7 +199,7 @@ void Strncpy(char* a, const char* b, int nChr) {
 	return Strncpy(a+1, b+1, nChr-1);
 }
 
-void ZeroMemory(void* ptr, int nByt) { //met 0 partout dans nByt indiqué
+void ZeroMemory(void* ptr, int nByt) { 
 	if (nByt <= 0) {
 		return;
 	}
