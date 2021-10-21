@@ -1,0 +1,3 @@
+﻿  Int64Array.cpp
+c:\workspacegp2\hae_gp2\cours2\cours2\int64array.cpp(172): warning C4244: 'initialisation' : conversion de 'int64_t' en 'int', perte possible de données
+  cours2.vcxproj -> C:\WorkSpacegp2\hae_gp2\cours2\x64\Debug\cours2.exe

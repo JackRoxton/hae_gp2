@@ -3,6 +3,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include "Int64Array.hpp"
+#include "Chrono.hpp"
 /*
 #pragma region MyRegion
 
@@ -141,6 +142,44 @@ int main() {
 	arr.push_back(18);
 	arr.push_front(19);
 	arr.insert(3, 20);
+
+	Int64Array arrr(10);
+	arrr.set(0, 0);
+	arrr.set(1, 2);
+	arrr.set(2, 4);
+	arrr.set(3, 6);
+	arrr.insert_ordered(7);
+
+	Int64Array ar(10);
+	int64_t tt[] = { 448,48,64,46,486,846,46,646 };
+	int sz = sizeof(tt) / sizeof(int64_t);
+	ar.data = tt;
+	ar.curSize = sz;
+	ar.bSearch(0, ar.curSize, 64);
+	ar.bSearch(0, ar.curSize, 48);
+	ar.bSearch(0, ar.curSize, 846);
+
+#pragma region Chrono
+	double t0 = getTimeStamp();
+	Int64Array ti(1000);
+	for (int i = 0; i < 1000; i++) {
+		ti.insert_ordered(rand() % 11353453);
+	}
+	double t1 = getTimeStamp();
+	printf("time elapsed insertOrder: %llf\n", (t1 - t0));
+
+	double t2 = getTimeStamp();
+	Int64Array ti2;
+	ti2.append_sorted(ar.data, arr.curSize);
+	double t3 = getTimeStamp();
+	printf("time elapsed appendSorted: %llf\n", (t3 - t2));
+
+	double t4 = getTimeStamp();
+	Int64Array ti3;
+	ti2.insertionSort(ar.data, arr.curSize);
+	double t5 = getTimeStamp();
+	printf("time elapsed insertionSort: %llf\n", (t5 - t4));
+#pragma endregion
 
 	return 0;
 }
