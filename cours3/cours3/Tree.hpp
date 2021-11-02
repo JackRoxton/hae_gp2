@@ -76,11 +76,11 @@ public:
 		}
 		if (v < val) {
 			if(l)
-			l->search(v);
+			return l->search(v);
 		}
 		else {
 			if(r)
-			r->search(v);
+			return r->search(v);
 		}
 	}
 };
