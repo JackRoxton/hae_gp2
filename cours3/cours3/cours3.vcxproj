@@ -155,6 +155,7 @@
     <ClInclude Include="List.hpp" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Tool.hpp" />
+    <ClInclude Include="Tree.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cours3.cpp" />
