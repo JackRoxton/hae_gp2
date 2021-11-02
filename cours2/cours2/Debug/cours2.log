@@ -1,4 +1,4 @@
-﻿  Int64Array.cpp
-  cours2.cpp
-  Génération de code en cours...
+﻿  cours2.cpp
+c:\workspace_gp2\github\hae_gp2\cours2\cours2\cours2.cpp(186): warning C4475: 'printf' : le modificateur de longueur 'll' ne peut pas être utilisé avec le caractère de champ de type 'f' dans le spécificateur de format
+c:\workspace_gp2\github\hae_gp2\cours2\cours2\cours2.cpp(204): warning C4475: 'printf' : le modificateur de longueur 'll' ne peut pas être utilisé avec le caractère de champ de type 'f' dans le spécificateur de format
   cours2.vcxproj -> C:\WorkSpace_gp2\GitHub\hae_gp2\cours2\Debug\cours2.exe
