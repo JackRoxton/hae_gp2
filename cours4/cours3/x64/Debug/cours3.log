@@ -1,4 +1,8 @@
 ﻿  cours3.cpp
-c:\workspacegp2\hae_gp2\cours4\cours3\cours3.cpp(13): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-c:\workspacegp2\hae_gp2\cours4\cours3\cours3.cpp(51): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours4\cours3\cours3.cpp(24): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours4\cours3\cours3.cpp(29): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours4\cours3\cours3.cpp(82): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours4\cours3\cours3.cpp(83): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours4\cours3\cours3.cpp(90): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours4\cours3\cours3.cpp(98): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
   cours3.vcxproj -> C:\WorkSpacegp2\hae_gp2\cours4\x64\Debug\cours3.exe
