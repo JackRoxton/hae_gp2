@@ -34,8 +34,8 @@ public:
 
 	Tree* remove(Value v) {
 		if (v == val) {
-			auto _l = l;
-			auto _r = r;
+			Tree* _l = l;
+			Tree* _r = r;
 			if (!l) {
 				delete this;
 				return _r;
@@ -45,20 +45,22 @@ public:
 				return _l;
 			}
 			else {
-				delete this;
 				l->merge(r);
+				delete this;
 				return l;
 			}
 		}
-		else if (v < val) {
-			if(l)
-			l->remove(v);
-		}
 		else {
-			if(r)
-			r->remove(v);
+			if (v < val) {
+				if (l)
+					l = l->remove(o);
+			}
+			else {
+				if (r)
+					r = r->remove(o);
+			}
+			return this;
 		}
-		return(this);
 	}
 
 	Tree* merge(Tree* a) {
@@ -75,12 +77,16 @@ public:
 			return this;
 		}
 		if (v < val) {
-			if(l)
-			return l->search(v);
+			if (l)
+				return l->search(v);
+			else
+				return nullptr;
 		}
 		else {
 			if(r)
-			return r->search(v);
+				return r->search(v);
+			else
+				return nullptr;
 		}
 	}
 };

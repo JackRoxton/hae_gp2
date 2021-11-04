@@ -3,6 +3,7 @@
 #include <vector>
 #include "Int64Array.hpp"
 #include "List.hpp"
+#include "Tree.hpp"
 
 int _main()
 {
