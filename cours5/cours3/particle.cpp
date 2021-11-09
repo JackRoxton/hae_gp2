@@ -41,13 +41,13 @@ void particle::update(double dt) {
 	}
 }
 
-void particle::draw(sf::RenderWindow& window) {
+void particle::draw(sf::RenderWindow& win) {
 	int idx = 0;
 	const int sz = px.size();
 	while (idx < sz) {
 		if (alive[idx]) {
 			shape.setPosition(px[idx], py[idx]);
-			window.draw(shape);
+			win.draw(shape);
 		}
 		idx++;
 	}
