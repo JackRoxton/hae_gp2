@@ -2,16 +2,11 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
+#include "particle.hpp"
 
 int posx = 400, posy = 400;
 int dt = 5;
 bool keypress = false;
-
-/*class bullet {
-	sf::CircleShape bult;
-	bult.setRadius(10.f);
-	bult.setFillColor(sf::Color::Magenta);
-};*/
 
 float catmull(float p0, float p1, float p2, float p3 , float t) {
 	auto q = 2*p1;
@@ -125,6 +120,7 @@ int main()
 	mouse.setFillColor(sf::Color::Yellow);
 	mouse.setPosition(sf::Vector2f(sf::Mouse::getPosition()));
 
+	particle bullets;
 	
 	/*sf::Font fHumble;
 	if (!fHumble.loadFromFile("res/The Humble.ttf"))
@@ -133,10 +129,11 @@ int main()
 	tdt.setFont(fHumble);
 	tdt.setCharacterSize(45);*/
 
-	bool bulletAlive = false;
+	/*bool bulletAlive = false;
 	sf::Vector2f bulletTarget;
 	sf::CircleShape bullet;
 	sf::Vector2f characterToMouse;
+	float norme;*/
 
 	while (window.isOpen())
 	{
@@ -184,22 +181,49 @@ int main()
 			float angle = atan2(characterToMouse.x, characterToMouse.y);
 			gun.setRotation(angle * 57.2958);
 			
-			if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+
+			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+				auto pos = gun.getPosition();
+				auto dir = mouse.getPosition() - pos;
+				float dirLen = std::sqrt(dir.x*dir.x + dir.y*dir.y);
+				sf::Vector2f dxy(1, 0);
+				if (dirLen) {
+					dxy = dir / dirLen;
+				}
+				dxy *= 60.0f * 3;
+				bullets.create(pos.x,pos.y,dxy.x,dxy.y);
+			}
+
+
+
+			/*if (sf::Mouse::isButtonPressed(sf::Mouse::Left)&&!bulletAlive)
 			{
 				bullet.setRadius(10.f);
-				bullet.setFillColor(sf::Color::Magenta);
+				bullet.setFillColor(sf::Color::Blue);
 				bullet.setPosition(gun.getPosition());
 				bulletAlive = true;
-				bulletTarget = characterToMouse;
+				bulletTarget = -sf::Vector2f(gun.getPosition().x-mouse.getPosition().x, gun.getPosition().y-mouse.getPosition().y);
+				norme = std::sqrt(bulletTarget.x*bulletTarget.x+bulletTarget.y*bulletTarget.y);
+				bulletTarget /= norme;
 			}
 		}
 			if (bulletAlive) {
 				bullet.move(bulletTarget);
-			}
+
+				if (bullet.getPosition().x < 0 || bullet.getPosition().x > 1280
+					|| bullet.getPosition().y < 0 || bullet.getPosition().y > 720)
+				{
+					bulletAlive = false;
+				}
+			}*/
 		
 
 
 		window.clear();
+
+		bullets.update(dt);
+
+		bullets.draw(window);
 
 		drawGround(window);
 		drawMountain(window);
@@ -208,10 +232,10 @@ int main()
 		window.draw(gun);
 		window.draw(mouse);
 
-		if(bulletAlive)
+		/*if(bulletAlive)
 			window.draw(bullet);
 
-		//window.draw(tdt);
+		window.draw(tdt);*/
 		window.display();
 	}
 

@@ -18,13 +18,7 @@
     <ClInclude Include="pch.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="List.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Tool.hpp">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Tree.hpp">
+    <ClInclude Include="particle.hpp">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
@@ -33,6 +27,9 @@
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="cours3.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="particle.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>

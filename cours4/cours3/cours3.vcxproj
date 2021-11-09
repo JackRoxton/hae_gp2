@@ -162,13 +162,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="List.hpp" />
+    <ClInclude Include="particle.hpp" />
     <ClInclude Include="pch.h" />
-    <ClInclude Include="Tool.hpp" />
-    <ClInclude Include="Tree.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="cours3.cpp" />
+    <ClCompile Include="particle.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
