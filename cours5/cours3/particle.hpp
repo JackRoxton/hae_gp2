@@ -7,7 +7,10 @@ class particle {
 public:
 	sf::CircleShape shape;
 
-	std::vector<float> px, py, dx, dy;
+	std::vector<float> px;
+	std::vector<float> py;
+	std::vector<float> dx;
+	std::vector<float> dy;
 
 	std::vector<bool> alive;
 

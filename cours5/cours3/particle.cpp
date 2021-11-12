@@ -4,7 +4,7 @@
 particle::particle() {
 	int t = 10;
 	shape = sf::CircleShape(t);
-	shape.setFillColor(sf::Color::Blue);
+	shape.setFillColor(sf::Color::Yellow);
 	shape.setOrigin(sf::Vector2f(t, t));
 }
 

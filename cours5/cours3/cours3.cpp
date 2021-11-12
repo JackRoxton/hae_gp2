@@ -6,7 +6,7 @@
 #include "Entity.hpp"
 
 int posx = 400, posy = 400;
-int dt = 5;
+int dt = 1;
 bool keypress = false;
 
 float catmull(float p0, float p1, float p2, float p3 , float t) {
@@ -162,16 +162,16 @@ int main()
 
 				printf("%d, %d\n", posx, posy);
 			}*/
-
+		}
 			auto pos = shape.getPosition();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 				posx -= dt; keypress = true;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 				posx += dt; keypress = true;
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
 				posy -= dt; keypress = true;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-				posy += dt; keypress = true;
+				posy += dt; keypress = true;*/
 
 			if (keypress) {
 				shape.setPosition(posx, posy);
@@ -187,7 +187,7 @@ int main()
 
 			if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
 				auto pos = gun.getPosition();
-				auto dir = mouse.getPosition() - pos;
+				auto dir = sf::Vector2f(sf::Mouse::getPosition(window)) - pos;
 				float dirLen = std::sqrt(dir.x*dir.x + dir.y*dir.y);
 				sf::Vector2f dxy(1, 0);
 				if (dirLen) {
@@ -226,10 +226,11 @@ int main()
 
 			bullets.update(dt);
 
-			bullets.draw(window);
-
 			drawGround(window);
 			drawMountain(window);
+
+			bullets.draw(window);
+
 
 			window.draw(shape);
 			window.draw(gun);
@@ -240,7 +241,7 @@ int main()
 
 			window.draw(tdt);*/
 			window.display();
-		}
+		
 	}
 
 	return 0;
