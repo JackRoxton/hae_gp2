@@ -4,6 +4,7 @@
 #include <SFML/Main.hpp>
 #include "particle.hpp"
 #include "Entity.hpp"
+#include "Chrono.hpp"
 
 int posx = 400, posy = 400;
 int dt = 1;
@@ -19,21 +20,7 @@ float catmull(float p0, float p1, float p2, float p3 , float t) {
 
 	return 0.5f*q;
 
-	/*sf::VertexArray arr;
-	arr.setPrimitiveType(sf::LineStrip);
-	sf::Color col = sf::Color::Magenta;
 
-	float baseline = 200;
-
-	sf::Vector2f a(0, baseline);
-	sf::Vector2f b(400, baseline + 150);
-	sf::Vector2f c(800, baseline - 250);
-	sf::Vector2f d(window.getSize().x, baseline);
-
-	arr.append(sf::Vertex(a, col));
-	arr.append(sf::Vertex(b, col));
-	arr.append(sf::Vertex(c, col));
-	arr.append(sf::Vertex(d, col));*/
 }
 
 void drawMountain(sf::RenderWindow& window) {
@@ -48,10 +35,7 @@ void drawMountain(sf::RenderWindow& window) {
 	sf::Vector2f c(800, baseline -100);
 	sf::Vector2f d(window.getSize().x,baseline);
 
-	/*arr.append(sf::Vertex(a, col));
-	arr.append(sf::Vertex(b, col));
-	arr.append(sf::Vertex(c, col));
-	arr.append(sf::Vertex(d, col));*/
+
 
 	col = sf::Color::Magenta;
 
@@ -125,18 +109,10 @@ int main()
 
 	particle bullets;
 	
-	/*sf::Font fHumble;
-	if (!fHumble.loadFromFile("res/The Humble.ttf"))
-		printf("font not loaded\n");
-	sf::Text tdt;
-	tdt.setFont(fHumble);
-	tdt.setCharacterSize(45);*/
+	auto FirstFrame = getTimeStamp();
+	auto SecondFrame = getTimeStamp();
+	dt = SecondFrame - FirstFrame;
 
-	/*bool bulletAlive = false;
-	sf::Vector2f bulletTarget;
-	sf::CircleShape bullet;
-	sf::Vector2f characterToMouse;
-	float norme;*/
 
 	while (window.isOpen())
 	{
@@ -147,31 +123,14 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 
-			/*if (event.type == sf::Event::KeyPressed)
-			{
-				if (event.key.code == sf::Keyboard::Up)
-					posy -= 5;
-				if (event.key.code == sf::Keyboard::Down)
-					posy += 5;
-				if (event.key.code == sf::Keyboard::Left)
-					posx -= 5;
-				if (event.key.code == sf::Keyboard::Right)
-					posx += 5;
 
-				shape.setPosition(posx,posy);
-
-				printf("%d, %d\n", posx, posy);
-			}*/
 		}
 			auto pos = shape.getPosition();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-				posx -= dt; keypress = true;
+				posx -= dt * 60; keypress = true;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-				posx += dt; keypress = true;
-			/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-				posy -= dt; keypress = true;
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-				posy += dt; keypress = true;*/
+				posx += dt * 60; keypress = true;
+
 
 			if (keypress) {
 				shape.setPosition(posx, posy);
@@ -199,26 +158,6 @@ int main()
 
 
 
-			/*if (sf::Mouse::isButtonPressed(sf::Mouse::Left)&&!bulletAlive)
-			{
-				bullet.setRadius(10.f);
-				bullet.setFillColor(sf::Color::Blue);
-				bullet.setPosition(gun.getPosition());
-				bulletAlive = true;
-				bulletTarget = -sf::Vector2f(gun.getPosition().x-mouse.getPosition().x, gun.getPosition().y-mouse.getPosition().y);
-				norme = std::sqrt(bulletTarget.x*bulletTarget.x+bulletTarget.y*bulletTarget.y);
-				bulletTarget /= norme;
-			}
-		}
-			if (bulletAlive) {
-				bullet.move(bulletTarget);
-
-				if (bullet.getPosition().x < 0 || bullet.getPosition().x > 1280
-					|| bullet.getPosition().y < 0 || bullet.getPosition().y > 720)
-				{
-					bulletAlive = false;
-				}
-			}*/
 
 
 
@@ -236,10 +175,7 @@ int main()
 			window.draw(gun);
 			window.draw(mouse);
 
-			/*if(bulletAlive)
-				window.draw(bullet);
 
-			window.draw(tdt);*/
 			window.display();
 		
 	}

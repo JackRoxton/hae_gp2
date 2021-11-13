@@ -163,6 +163,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Entity.hpp" />
+    <ClInclude Include="Chrono.hpp" />
     <ClInclude Include="particle.hpp" />
     <ClInclude Include="pch.h" />
   </ItemGroup>
