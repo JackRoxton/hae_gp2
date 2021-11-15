@@ -6,6 +6,7 @@ particle::particle() {
 	shape = sf::CircleShape(t);
 	shape.setFillColor(sf::Color::Yellow);
 	shape.setOrigin(sf::Vector2f(t, t));
+	hitBox = shape.getGlobalBounds();
 }
 
 void particle::create(float _px, float _py, float _dx, float _dy) {
@@ -38,6 +39,7 @@ void particle::update(double dt) {
 				alive[i] = false;
 			}
 		}
+		
 		if (px[i] >= 1280 || px[i] <= 0)
 		{
 			dx[i] = -dx[i];
@@ -48,6 +50,15 @@ void particle::update(double dt) {
 		}
 	}
 }
+
+/*void particle::simpleBounce(sf::FloatRect HB) {
+	for (int i = 0; i < px.size(); ++i) {
+		if (alive[i] && hitBox.intersects(HB)) {
+			dx[i] = -dx[i];
+			dy[i] = -dy[i];
+		}
+	}
+}*/
 
 void particle::draw(sf::RenderWindow& win) {
 	int idx = 0;

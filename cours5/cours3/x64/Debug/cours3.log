@@ -1,21 +1,23 @@
-﻿  particle.cpp
-d:\unity\hae_gp2\cours5\cours3\particle.cpp(2): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-d:\unity\hae_gp2\cours5\cours3\particle.cpp(6): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-d:\unity\hae_gp2\cours5\cours3\particle.cpp(8): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+﻿  Source.cpp
+d:\unity\hae_gp2\cours5\cours3\source.cpp(37): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
           with
+          [
+              T=unsigned int
+          ]
+          and
           [
               T=float
           ]
-d:\unity\hae_gp2\cours5\cours3\particle.cpp(34): warning C4244: '+=' : conversion de 'double' en '_Ty', perte possible de données
+d:\unity\hae_gp2\cours5\cours3\source.cpp(71): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
           with
           [
-              _Ty=float
+              T=unsigned int
           ]
-d:\unity\hae_gp2\cours5\cours3\particle.cpp(35): warning C4244: '+=' : conversion de 'double' en '_Ty', perte possible de données
-          with
+          and
           [
-              _Ty=float
+              T=float
           ]
-d:\unity\hae_gp2\cours5\cours3\particle.cpp(54): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-d:\unity\hae_gp2\cours5\cours3\particle.cpp(54): warning C4267: 'initialisation' : conversion de 'size_t' en 'const int', perte possible de données
+d:\unity\hae_gp2\cours5\cours3\source.cpp(126): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+d:\unity\hae_gp2\cours5\cours3\source.cpp(127): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+d:\unity\hae_gp2\cours5\cours3\source.cpp(175): warning C4305: 'initialisation' : troncation de 'double' à 'float'
   cours3.vcxproj -> D:\unity\hae_gp2\cours5\x64\Debug\cours3.exe

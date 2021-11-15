@@ -81,10 +81,11 @@ int main()
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setVerticalSyncEnabled(true);
 	window.setFramerateLimit(60);
-	sf::RectangleShape shape(sf::Vector2f(25, 60));
-	shape.setFillColor(sf::Color::Green);
-	shape.setPosition(800, 600);
 
+	sf::RectangleShape player(sf::Vector2f(25, 60));
+	player.setFillColor(sf::Color::Green);
+	player.setPosition(800, 600);
+	sf::FloatRect playerHB = player.getGlobalBounds();
 	sf::RectangleShape gun(sf::Vector2f(8, 32));
 	gun.setFillColor(sf::Color(0xFF, 0x00, 0x00));
 	gun.setOrigin(4, 0);
@@ -102,6 +103,11 @@ int main()
 	ptr.setFillColor(sf::Color::Cyan);
 	ptr.setOrigin(4, 4);
 
+	sf::RectangleShape box(sf::Vector2f(40, 40));
+	box.setPosition(400, 400);
+	box.setFillColor(sf::Color::Red);
+	sf::FloatRect boxHB = box.getGlobalBounds();
+
 	double tStart = getTimeStamp();
 	double tEnterFrame = getTimeStamp();
 	double tExitFrame = getTimeStamp();
@@ -116,7 +122,7 @@ int main()
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
-		auto pos = shape.getPosition();
+		auto pos = player.getPosition();
 		float deltaX = dt * 160;
 		float deltaY = dt * 160;
 		bool keyHit = false;
@@ -137,7 +143,7 @@ int main()
 			keyHit = true;
 		}
 		if (keyHit)
-			shape.setPosition(pos);
+			player.setPosition(pos);
 
 
 		bool mouseLeftIsPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
@@ -163,26 +169,32 @@ int main()
 			mouseLeftWasPressed = false;
 
 		sf::Vector2f characterToMouse(
-			mousePos.y - shape.getPosition().y,
-			mousePos.x - shape.getPosition().x);
+			mousePos.y - player.getPosition().y,
+			mousePos.x - player.getPosition().x);
 
 		float radToDeg = 57.2958;
 		float angleC2M = atan2(characterToMouse.y, characterToMouse.x);
 		gun.setRotation(-angleC2M * radToDeg);
-		gun.setPosition(shape.getPosition() + sf::Vector2f(8, 16));
+		gun.setPosition(player.getPosition() + sf::Vector2f(8, 16));
 
 		ptr.setPosition(mousePos);
 		tDt.setString(to_string(dt) + " FPS:" + to_string((int)(1.0f / dt)));
 
 		window.clear();
 
+		if (bullets.hitBox.intersects(boxHB)) 
+			//bullets.simpleBounce(boxHB);
+
 		bullets.update(dt);
+
 
 		drawMountain(window);
 
 		bullets.draw(window);
 
-		window.draw(shape);
+		window.draw(box);
+
+		window.draw(player);
 		window.draw(gun);
 
 		window.draw(ptr);
@@ -191,6 +203,7 @@ int main()
 
 		window.display();
 		tExitFrame = getTimeStamp();
+
 	}
 
 	return 0;

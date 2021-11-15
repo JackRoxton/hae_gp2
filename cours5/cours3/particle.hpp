@@ -6,6 +6,7 @@
 class particle {
 public:
 	sf::CircleShape shape;
+	sf::FloatRect hitBox;
 
 	std::vector<float> px;
 	std::vector<float> py;
@@ -18,5 +19,6 @@ public:
 
 	void create(float px, float py, float dx, float dy);
 	void update(double dt);
+	//void simpleBounce(sf::FloatRect HB);
 	void draw(sf::RenderWindow& window);
 };
