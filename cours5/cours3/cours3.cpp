@@ -1,5 +1,5 @@
 #include "pch.h"
-#include <iostream>
+/*#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 #include "particle.hpp"
@@ -7,7 +7,7 @@
 #include "Chrono.hpp"
 
 int posx = 400, posy = 400;
-int dt = 1;
+int dt;
 bool keypress = false;
 
 float catmull(float p0, float p1, float p2, float p3 , float t) {
@@ -19,8 +19,6 @@ float catmull(float p0, float p1, float p2, float p3 , float t) {
 	q += (-p0 + 3 * p1 - 3 * p2 + p3) 	* t2 * t;
 
 	return 0.5f*q;
-
-
 }
 
 void drawMountain(sf::RenderWindow& window) {
@@ -34,8 +32,6 @@ void drawMountain(sf::RenderWindow& window) {
 	sf::Vector2f b(400, baseline +100);
 	sf::Vector2f c(800, baseline -100);
 	sf::Vector2f d(window.getSize().x,baseline);
-
-
 
 	col = sf::Color::Magenta;
 
@@ -86,7 +82,7 @@ void drawGround(sf::RenderWindow& window){
 	window.draw(arr);
 }
 
-int main()
+int _main()
 {
 	EntityManager repo;
 
@@ -111,25 +107,26 @@ int main()
 	
 	auto FirstFrame = getTimeStamp();
 	auto SecondFrame = getTimeStamp();
-	dt = SecondFrame - FirstFrame;
 
 
 	while (window.isOpen())
 	{
 		//repo.repository
+
+		dt = SecondFrame - FirstFrame;
+		FirstFrame = getTimeStamp();
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
 			if (event.type == sf::Event::Closed)
 				window.close();
 
-
 		}
 			auto pos = shape.getPosition();
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-				posx -= dt * 60; keypress = true;
+				posx -= dt * 160; keypress = true;
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-				posx += dt * 60; keypress = true;
+				posx += dt * 160; keypress = true;
 
 
 			if (keypress) {
@@ -156,11 +153,6 @@ int main()
 				bullets.create(pos.x, pos.y, dxy.x, dxy.y);
 			}
 
-
-
-
-
-
 			window.clear();
 
 			bullets.update(dt);
@@ -178,7 +170,8 @@ int main()
 
 			window.display();
 		
+			SecondFrame = getTimeStamp();
 	}
 
 	return 0;
-}
+}*/

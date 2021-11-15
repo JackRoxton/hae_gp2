@@ -38,6 +38,14 @@ void particle::update(double dt) {
 				alive[i] = false;
 			}
 		}
+		if (px[i] >= 1280 || px[i] <= 0)
+		{
+			dx[i] = -dx[i];
+		}
+		if (py[i] >= 780 || py[i] <= 0)
+		{
+			dy[i] = -dy[i];
+		}
 	}
 }
 
