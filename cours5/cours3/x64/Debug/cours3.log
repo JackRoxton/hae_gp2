@@ -1,23 +1,12 @@
-﻿  Source.cpp
-d:\unity\hae_gp2\cours5\cours3\source.cpp(37): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
+﻿  Entity.cpp
+c:\workspace_gp2\github\hae_gp2\cours5\cours3\entity.cpp(11): warning C4244: '+=' : conversion de 'double' en 'T', perte possible de données
           with
-          [
-              T=unsigned int
-          ]
-          and
           [
               T=float
           ]
-d:\unity\hae_gp2\cours5\cours3\source.cpp(71): warning C4244: 'argument' : conversion de 'T' en 'T', perte possible de données
-          with
-          [
-              T=unsigned int
-          ]
-          and
-          [
-              T=float
-          ]
-d:\unity\hae_gp2\cours5\cours3\source.cpp(126): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-d:\unity\hae_gp2\cours5\cours3\source.cpp(127): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-d:\unity\hae_gp2\cours5\cours3\source.cpp(175): warning C4305: 'initialisation' : troncation de 'double' à 'float'
-  cours3.vcxproj -> D:\unity\hae_gp2\cours5\x64\Debug\cours3.exe
+  Pong.cpp
+c:\workspace_gp2\github\hae_gp2\cours5\cours3\pong.cpp(68): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+c:\workspace_gp2\github\hae_gp2\cours5\cours3\pong.cpp(69): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+  World.cpp
+  Génération de code en cours...
+  cours3.vcxproj -> C:\WorkSpace_gp2\GitHub\hae_gp2\cours5\x64\Debug\cours3.exe

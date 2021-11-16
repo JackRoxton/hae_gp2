@@ -1,8 +1,7 @@
 #include "pch.h"
-#include <iostream>
+/*#include <iostream>
 #include <cstdio>
 #include <cstdlib>
-#include "Int64Array.hpp"
 #include "Chrono.hpp"
 #include <algorithm>
 #include <vector>
@@ -11,6 +10,7 @@
 #include <SFML/Main.hpp>
 #include <SFML/Window.hpp>
 #include "particle.hpp"
+#include "Entity.hpp"
 
 float catmull(float p0, float p1, float p2, float p3, float t) {
 	auto q = 2.0f * p1;
@@ -76,8 +76,10 @@ void drawGround(sf::RenderWindow& window) {
 	window.draw(arr);
 }
 
-int main()
+int _main()
 {
+	EntityManager entityManager;
+
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setVerticalSyncEnabled(true);
 	window.setFramerateLimit(60);
@@ -182,11 +184,7 @@ int main()
 
 		window.clear();
 
-		if (bullets.hitBox.intersects(boxHB)) 
-			//bullets.simpleBounce(boxHB);
-
 		bullets.update(dt);
-
 
 		drawMountain(window);
 
@@ -207,4 +205,4 @@ int main()
 	}
 
 	return 0;
-}
+}*/

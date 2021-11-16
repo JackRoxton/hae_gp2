@@ -32,15 +32,15 @@ void particle::create(float _px, float _py, float _dx, float _dy) {
 void particle::update(double dt) {
 	for (int i = 0; i < px.size(); ++i) {
 		if (alive[i]) {
-			px[i] += dx[i] * dt;
-			py[i] += dy[i] * dt;
+			px[i] += dx[i] * dt ;
+			py[i] += dy[i] * dt ;
 			if (px[i] > 3000 || px[i] < -100
 				|| py[i] > 3000 || py[i] < -100) {
 				alive[i] = false;
 			}
 		}
 		
-		if (px[i] >= 1280 || px[i] <= 0)
+		if (px[i] >= 1280 || px[i] <= 0)//reboonds sur les bords de l'écran (version nulle)
 		{
 			dx[i] = -dx[i];
 		}
