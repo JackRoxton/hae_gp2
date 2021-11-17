@@ -70,8 +70,8 @@ int main() {
 				window.close();
 		}
 		auto pos = player->position;
-		float deltaX = dt * 500;
-		float deltaY = dt * 500;
+		double deltaX = dt * 500;
+		double deltaY = dt * 500;
 		bool keyHit = false;
 		/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
 			pos.x -= deltaX;

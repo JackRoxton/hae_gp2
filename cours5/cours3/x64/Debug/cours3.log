@@ -1,4 +1,2 @@
-﻿  Pong.cpp
-d:\unity\hae_gp2\cours5\cours3\pong.cpp(73): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-d:\unity\hae_gp2\cours5\cours3\pong.cpp(74): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
+﻿  World.cpp
   cours3.vcxproj -> D:\unity\hae_gp2\cours5\x64\Debug\cours3.exe
