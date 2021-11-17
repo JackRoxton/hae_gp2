@@ -8,7 +8,7 @@ void Entity::move(sf::Vector2f dir) {
 }
 
 void Entity::update(double dt) {
-	spr->setPosition(position.x += (direction.x * dt),position.y += (direction.y * dt));
+	spr->setPosition(position.x += (direction.x * dt)*speed,position.y += (direction.y * dt)*speed);
 }
 
 void Entity::draw(RenderWindow& window) {

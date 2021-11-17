@@ -40,7 +40,7 @@ void particle::update(double dt) {
 			}
 		}
 		
-		if (px[i] >= 1280 || px[i] <= 0)//reboonds sur les bords de l'écran (version nulle)
+		if (px[i] >= 1280 || px[i] <= 0)//rebonds sur les bords de l'écran (version nulle)
 		{
 			dx[i] = -dx[i];
 		}

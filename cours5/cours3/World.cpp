@@ -1,26 +1,43 @@
 #include "pch.h"
 #include "World.hpp"
 
-void World::collide() {//faire par type ou une constante ( vu que ce sont des rectangles?)
+void World::collide(double dt) {//faire par type ou une constante (vu que ce sont des rectangles?)
 	for (auto e : entities) {
+		FloatRect eHB = e->spr->getGlobalBounds();
+		Vector2f oldPos = e->spr->getPosition();
+		e->update(dt);
 		for (auto f : entities) {
-			if(e != f){ 
-				if (e->hitBox.intersects(f->hitBox)) {//collide constant parceque why not ?? // soucis de hitbox ? à tester // avec des contains ou intersect
-					printf("%d",f->type);
+			FloatRect fHB = f->spr->getGlobalBounds();
+			if(e != f && e->type != f->type){ 
+				if (eHB.intersects(fHB)) {// avec des contains ou intersect
 					if (e->type == Ball) {
-						if (e->position.x > f->position.x + f->hitBox.width) { // avec des pos.x ou des hitBox.left ? https://www.sfml-dev.org/documentation/2.5.1/classsf_1_1Rect.php#aa49960fa465103d9cb7069ceb25c7c32
-							e->direction.x *= -1;
+						if (f->type == Wall){
+							if (fHB.width > fHB.height) {
+								e->direction.y *= -1;
+							}
+							else {
+								e->direction.x *= -1;
+							}
+							e->spr->setPosition(e->cleanPosition);
+							e->position = e->cleanPosition;
+						}
+						if (f->type == Brick || f->type == PlayerObject) {
+							if ((e->cleanPosition.y < fHB.top) || (e->cleanPosition.y > (fHB.top + fHB.height))) {
+								e->direction.y *= -1;
+							}
+							else {
+								e->direction.x *= -1;
+							}
+							e->spr->setPosition(e->cleanPosition);
+							e->position = e->cleanPosition;
 						}
 					}
 				}
+				else if (e->type == Ball) {
+					e->cleanPosition = oldPos;
+				}
 			}
 		}
-	}
-}
-
-void World::update(double dt) {
-	for (auto e : entities) {
-		e->update(dt);
 	}
 }
 

@@ -30,30 +30,35 @@ int main() {
 	uWall->spr->setFillColor(sf::Color::Magenta);
 	Entity * lWall = new Entity(Wall, new sf::RectangleShape(sf::Vector2f(10, 720)));
 	lWall->spr->setFillColor(sf::Color::Magenta);
+	lWall->spr->setOrigin(5, 0);
 	Entity * rWall = new Entity(Wall, new sf::RectangleShape(sf::Vector2f(10, 720)));
-	rWall->position = sf::Vector2f(1270, 0);
+	rWall->position = sf::Vector2f(1275, 0);
+	rWall->spr->setOrigin(5, 0);
 	rWall->spr->setFillColor(sf::Color::Magenta);
 
 	Entity * player = new Entity(PlayerObject,new sf::RectangleShape(sf::Vector2f(75, 25)));
 	player->position = sf::Vector2f(600, 600);
-	player->spr->setOrigin(sf::Vector2f(30, 6));
+	//player->spr->setOrigin(sf::Vector2f(30, 6));
 	
-	Entity * ball = new Entity(Ball,new sf::CircleShape(8));
+	Entity * ball = new Entity(Ball,new sf::CircleShape(10));
 	ball->position = sf::Vector2f(player->position.x,player->position.y - 30);
 	ball->spr->setFillColor(sf::Color::Green);
+	ball->spr->setOrigin(10, 10);
+	ball->speed = 1.25f;
 
 	Entity * brick = new Entity(Brick, new sf::RectangleShape(sf::Vector2f(50,50)));
 	brick->position = sf::Vector2f(600, 400);
 	brick->spr->setFillColor(sf::Color::Red);
 
 	World world;
+	world.entities.push_back(player);
+	world.entities.push_back(ball);
+	world.entities.push_back(brick);
+
 	world.entities.push_back(uWall);
 	world.entities.push_back(lWall);
 	world.entities.push_back(rWall);
 
-	world.entities.push_back(player);
-	world.entities.push_back(ball);
-	world.entities.push_back(brick);
 
 
 	while (window.isOpen()) {
@@ -65,8 +70,8 @@ int main() {
 				window.close();
 		}
 		auto pos = player->position;
-		float deltaX = dt * 160;
-		float deltaY = dt * 160;
+		float deltaX = dt * 500;
+		float deltaY = dt * 500;
 		bool keyHit = false;
 		/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
 			pos.x -= deltaX;
@@ -124,8 +129,8 @@ int main() {
 		world.draw(window);
 
 		//player->update(dt);
-		world.update(dt);
-		world.collide();
+		ball->update(dt);
+		world.collide(dt);
 
 		window.display();
 		tExitFrame = getTimeStamp();

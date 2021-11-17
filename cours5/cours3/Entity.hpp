@@ -1,5 +1,6 @@
 #pragma once
 #include "SFML/Graphics/Shape.hpp"
+#include <SFML/Graphics/Rect.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 
 using namespace sf;
@@ -14,15 +15,16 @@ enum EType {
 class Entity {
 public :
 	Shape* spr = nullptr;
-	FloatRect hitBox;
 	Vector2f position;
 	Vector2f direction;
 	EType type;
+	float speed = 1;
+
+	Vector2f cleanPosition;
 
 	Entity(EType _type,  Shape * _spr) {
 		type = _type;
 		spr = _spr;
-		hitBox = spr->getGlobalBounds();
 	}
 
 	~Entity() {
