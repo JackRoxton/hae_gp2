@@ -45,7 +45,7 @@ int main() {
 	ball->position = sf::Vector2f(player->position.x,player->position.y - 30);
 	ball->spr->setFillColor(sf::Color::Green);
 	ball->spr->setOrigin(10, 10);
-	ball->speed = 1.25f;
+	ball->speed = 1.5f;
 
 	Entity * brick = new Entity(Brick, new sf::RectangleShape(sf::Vector2f(50,50)));
 	brick->position = sf::Vector2f(600, 400);
@@ -74,8 +74,8 @@ int main() {
 				window.close();
 		}
 		auto pos = player->position;
-		double deltaX = dt * 500;
-		double deltaY = dt * 500;
+		double deltaX = dt * 600;
+		double deltaY = dt * 600;
 		bool keyHit = false;
 		/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
 			pos.x -= deltaX;
