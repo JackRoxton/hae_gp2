@@ -1,0 +1,7 @@
+﻿  Pong.cpp
+c:\workspacegp2\hae_gp2\cours6\cours3\pong.cpp(52): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+c:\workspacegp2\hae_gp2\cours6\cours3\pong.cpp(55): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  Turtle.cpp
+c:\workspacegp2\hae_gp2\cours6\cours3\turtle.cpp(54): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  Génération de code en cours...
+  cours3.vcxproj -> C:\WorkSpacegp2\hae_gp2\cours6\x64\Debug\cours3.exe
