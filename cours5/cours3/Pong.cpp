@@ -1,10 +1,14 @@
 #include "pch.h"
 #include <iostream>
+#include <string>
+#include <filesystem>
+
 #include <cstdio>
 #include <cstdlib>
 #include "Chrono.hpp"
 #include <algorithm>
 #include <vector>
+#include <direct.h>
 
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
@@ -14,13 +18,90 @@
 #include "Entity.hpp"
 #include "World.hpp"
 
+#include "Game.hpp"
+
+float catmull(float p0, float p1, float p2, float p3, float t) {
+	auto q = 2.0f * p1;
+	auto t2 = t * t;
+
+	q += (-p0 + p2) * t;
+	q += (2.0f * p0 - 5.0f * p1 + 4.0f * p2 - p3) * t2;
+	q += (-p0 + 3 * p1 - 3 * p2 + p3) * t2 * t;
+
+	return 0.5f * q;
+}
+
+void drawMountain(sf::RenderWindow& window) {
+
+	sf::VertexArray arr;
+	arr.setPrimitiveType(sf::LineStrip);
+	sf::Color col = sf::Color::Green;
+
+	float baseline = 350;
+
+	sf::Vector2f a(0, baseline + 50);
+	sf::Vector2f b(400, baseline - 150);
+	sf::Vector2f c(1100, baseline + 32);
+	sf::Vector2f d(window.getSize().x, baseline);
+	col.a = 100;
+
+	col = sf::Color::Magenta;
+	for (int i = 0; i < 256; ++i) {
+		float t = 1.0f * i / 256;
+		float x = catmull(a.x, a.x, b.x, c.x, t);
+		float y = catmull(a.y, a.y, b.y, c.y, t);
+		arr.append(sf::Vertex(sf::Vector2f(x, y), col));
+	}
+	for (int i = 0; i < 256; ++i) {
+		float t = 1.0f * i / 256;
+		float x = catmull(a.x, b.x, c.x, d.x, t);
+		float y = catmull(a.y, b.y, c.y, d.y, t);
+		arr.append(sf::Vertex(sf::Vector2f(x, y), col));
+	}
+
+	for (int i = 0; i < 256; ++i) {
+		float t = 1.0f * i / 256;
+		float x = catmull(b.x, c.x, d.x, d.x, t);
+		float y = catmull(b.y, c.y, d.y, d.y, t);
+		arr.append(sf::Vertex(sf::Vector2f(x, y), col));
+	}
+	window.draw(arr);
+}
+
+void drawGround(sf::RenderWindow& window) {
+	sf::VertexArray arr;
+	arr.setPrimitiveType(sf::LineStrip);
+	sf::Color col = sf::Color::Yellow;
+
+	float baseline = 600 + 60;
+
+	sf::Vector2f a(0, baseline);
+	sf::Vector2f b(window.getSize().x, baseline);
+
+	arr.append(sf::Vertex(a, col));
+	arr.append(sf::Vertex(b, col));
+
+	window.draw(arr);
+}
+
 int main() {
 
-	//++AUDIO musique et sons	//pas de mp3
+	sf::Texture bg;
+	bg.loadFromFile("res/texture.jpg");
+	bg.setSmooth(true);
+
+	//cout << std::files::current_path;
+	char tmp[256];
+	_getcwd(tmp, 256);
+	cout << "Current working directory: " << tmp << endl;
+
+	sf::Sprite bgspr;
+	bgspr.setTexture(bg);
 
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setVerticalSyncEnabled(true);
 	window.setFramerateLimit(60);
+
 
 	double tStart = getTimeStamp();
 	double tEnterFrame = getTimeStamp();
@@ -38,7 +119,7 @@ int main() {
 	rWall->spr->setFillColor(sf::Color::Magenta);
 
 	Entity * player = new Entity(PlayerObject,new sf::RectangleShape(sf::Vector2f(75, 25)));
-	player->position = sf::Vector2f(600, 600);
+	player->position = sf::Vector2f(700, 700);
 	//player->spr->setOrigin(sf::Vector2f(30, 6));
 	
 	Entity * ball = new Entity(Ball,new sf::CircleShape(10));
@@ -47,22 +128,35 @@ int main() {
 	ball->spr->setOrigin(10, 10);
 	ball->speed = 1.5f;
 
-	Entity * brick = new Entity(Brick, new sf::RectangleShape(sf::Vector2f(50,50)));
-	brick->position = sf::Vector2f(600, 400);
-	brick->spr->setFillColor(sf::Color::Red);
+	Game * _game = new Game();
 
 	World world;
+	world.game = _game;
 	world.entities.push_back(player);
 	world.entities.push_back(ball);
-	world.entities.push_back(brick);
+	for (int i = 0; i < 10; i++)
+	{
+		for (int j = 0; j < 4; j++) {
+
+		Entity * brick = new Entity(Brick, new sf::RectangleShape(sf::Vector2f(50,25)));
+		brick->position = sf::Vector2f(160 + 100 * i, 100 + 60 * j);
+		brick->spr->setFillColor(sf::Color::Red);
+		brick->spr->setOutlineColor(sf::Color::Yellow);
+		brick->spr->setOutlineThickness(2);
+		world.entities.push_back(brick);
+		}
+	}
+
+
 
 	world.entities.push_back(uWall);
 	world.entities.push_back(lWall);
 	world.entities.push_back(rWall);
 
-	Audio * _audio = new Audio;
+	Audio * _audio = new Audio();
 	world.audio = _audio;
-	_audio->ballPong.play();
+
+	_audio->music.play();
 
 
 	while (window.isOpen()) {
@@ -127,14 +221,20 @@ int main() {
 		if (mouseLeftIsPressed)
 			mouseLeftWasPressed = true;
 		
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
+			sf::Vector2i windowPos = window.getPosition();
+			window.setPosition(sf::Vector2i(100 + rand() % 25, 100 + rand() % 25));
+		}
 
 		window.clear();
 
+		window.draw(bgspr);
 		world.draw(window);
+
 
 		//player->update(dt);
 		ball->update(dt);
-		world.collide(dt);
+		world.collide(dt,window);
 
 		window.display();
 		tExitFrame = getTimeStamp();

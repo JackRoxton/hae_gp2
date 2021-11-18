@@ -12,5 +12,6 @@ void Entity::update(double dt) {
 }
 
 void Entity::draw(RenderWindow& window) {
+	if(spr)
 	window.draw(*spr);
 }
