@@ -16,13 +16,13 @@ void World::collide(double dt) {
 						if (f->type == Wall) {
 							if (fHB.width > fHB.height) {
 								e->direction.y *= -1;
-								e->cleanPosition.y += eHB.height;
+								e->cleanPosition.y += eHB.height/2;
 							}
 							else {
 								if (fHB.left > e->cleanPosition.x)
-									e->cleanPosition.x -= eHB.width;
+									e->cleanPosition.x -= eHB.width/2;
 								else
-									e->cleanPosition.x += eHB.width;
+									e->cleanPosition.x += eHB.width/2;
 
 								e->direction.x *= -1;
 							}
@@ -33,19 +33,19 @@ void World::collide(double dt) {
 						if (f->type == Brick || f->type == PlayerObject) {
 							if ((e->cleanPosition.y < fHB.top)) {
 								e->direction.y *= -1;
-								//e->cleanPosition.y -= eHB.height;
+								e->cleanPosition.y -= eHB.height/2;
 							}
-							if ((e->cleanPosition.y > (fHB.top + fHB.height))){
+							else if ((e->cleanPosition.y > (fHB.top + fHB.height))){
 								e->direction.y *= -1;
-								//e->cleanPosition.y += eHB.height;
+								e->cleanPosition.y += eHB.height/2;
 							}
 							else if(e->cleanPosition.x < fHB.left){
 								e->direction.x *= -1;
-								//e->cleanPosition.x -= eHB.width;
+								e->cleanPosition.x -= eHB.width/2;
 							}
-							else {
+							else if (e->cleanPosition.x > (fHB.left + fHB.width)) {
 								e->direction.x *= -1;
-								//e->cleanPosition.x += eHB.width;
+								e->cleanPosition.x += eHB.width/2;
 							}
 							e->spr->setPosition(e->cleanPosition);
 							e->position = e->cleanPosition;
