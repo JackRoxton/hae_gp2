@@ -11,7 +11,7 @@ void World::collide(double dt) {//faire par type ou une constante (vu que ce son
 			if(e != f && e->type != f->type){ 
 				if (eHB.intersects(fHB)) {// avec des contains ou intersect
 					if (e->type == Ball) {
-						//audio->ballPong.play();
+						audio->ballPong.play();
 						if (f->type == Wall){
 							if (fHB.width > fHB.height) {
 								e->direction.y *= -1;
@@ -48,11 +48,11 @@ void World::draw(RenderWindow& window) {
 	}
 }
 
-/*Audio::Audio() {
-	if (ballPongBuffer.loadFromFile("pickupCoin.wav"))
+Audio::Audio() {
+	if (ballPongBuffer.loadFromFile("res/pickupCoin.wav"))
 		ballPong.setBuffer(ballPongBuffer);
-	if (musicBuffer.loadFromFile("BeepBox-Song.wav"))
+	if (musicBuffer.loadFromFile("res/BeepBox-Song.wav"))
 		music.setBuffer(musicBuffer);
 	music.play();
 	music.setLoop(true);
-}*/
+}

@@ -6,7 +6,7 @@
 #include "SFML/Audio/Sound.hpp"
 #include "SFML/Audio/SoundBuffer.hpp"
 
-/*class Audio {
+class Audio {
 public:
 	Audio();
 	sf::Sound ballPong;
@@ -14,11 +14,11 @@ public:
 
 	sf::Sound music;
 	SoundBuffer musicBuffer;
-};*/
+};
 
 class World {
 public:
-	//Audio* audio = nullptr;
+	Audio* audio = nullptr;
 	std::vector<Entity*> entities;
 
 	//World();

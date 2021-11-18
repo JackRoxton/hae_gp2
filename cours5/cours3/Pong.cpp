@@ -9,6 +9,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Main.hpp>
 #include <SFML/Window.hpp>
+#include <SFML/Audio.hpp>
 #include "particle.hpp"
 #include "Entity.hpp"
 #include "World.hpp"
@@ -59,6 +60,9 @@ int main() {
 	world.entities.push_back(lWall);
 	world.entities.push_back(rWall);
 
+	Audio * _audio = new Audio;
+	world.audio = _audio;
+	_audio->ballPong.play();
 
 
 	while (window.isOpen()) {
