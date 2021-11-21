@@ -4,7 +4,6 @@
 
 enum CmdType {
 	Forward,
-	Backward,
 	Turn,
 };
 
@@ -17,12 +16,10 @@ public:
 
 class Turtle{
 public:
-	//sf::Transform au cazou
-	sf::CircleShape body;
-	sf::Vector2f bodyPos;
-	sf::RectangleShape head;
-	sf::Vector2f headPos;
+	sf::Transform transform;
 	float rotation;
+	sf::CircleShape body;
+	sf::RectangleShape head;
 	bool drawState = true;
 	sf::Color drawColor = sf::Color::Magenta;
 
@@ -30,23 +27,18 @@ public:
 	float turnSpeed = 10;
 
 	Turtle() {
+		transform.transformPoint(sf::Vector2f(200, 200));
 		body = sf::CircleShape(32);
-		body.setPosition(200,200);
 		body.setOrigin(32, 32);
 		body.setFillColor(sf::Color::Green);
-		bodyPos = body.getPosition();
 		head = sf::RectangleShape(sf::Vector2f(16, 16));
-		head.setPosition(200,200);
 		head.setOrigin(-28, 8);
 		head.setFillColor(sf::Color::Red);
-		headPos = head.getPosition();
-		rotation = body.getRotation();
 	}
 
 	void draw(sf::RenderWindow& window);
 
 	void goForward(int pxl);
-	void goBackwards(int pxl);
 	void turn(int deg);
 	void doDraw();
 	void doNotDraw();

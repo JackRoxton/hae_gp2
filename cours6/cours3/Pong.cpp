@@ -46,13 +46,13 @@ int main() {
 			turtle->goForward(turtleRunSpeed);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-			turtle->goBackwards(turtleRunSpeed);
+			turtle->goForward(-turtleRunSpeed);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
-			turtle->turn(turtleTurnSpeed);
+			turtle->turn(-turtleTurnSpeed);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-			turtle->turn(-turtleTurnSpeed);
+			turtle->turn(turtleTurnSpeed);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
 			turtle->doDraw();

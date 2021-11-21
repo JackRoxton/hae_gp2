@@ -2,29 +2,18 @@
 #include "Turtle.hpp"
 
 void Turtle::draw(sf::RenderWindow& window) {
-	window.draw(body);
-	window.draw(head);
+	window.draw(body,transform);
+	window.draw(head,transform);
 	if (drawState)
 		drawBehind();
 }
 
-void Turtle::goForward(int pxl) {	//avancer dans la direction du regard
-	sf::Vector2f bP = sf::Vector2f(bodyPos.x + pxl, bodyPos.y);
-	sf::Vector2f hP = sf::Vector2f(headPos.x + pxl, headPos.y);
-	body.setPosition(bP);
-	head.setPosition(hP);
-	bodyPos = body.getPosition();
-	headPos = head.getPosition();
-}
-
-void Turtle::goBackwards(int pxl) {
-	goForward(-pxl);
+void Turtle::goForward(int pxl) {
+	transform.translate(pxl,0);
 }
 
 void Turtle::turn(int deg) {
-	body.setRotation(rotation + deg);
-	head.setRotation(body.getRotation());
-	rotation = body.getRotation();
+	transform.rotate(deg);
 }
 
 void Turtle::doDraw() {
@@ -43,7 +32,7 @@ void Turtle::changeColor(sf::Color color) {
 	drawColor = color;
 }
 
-void Turtle::applyCmd(Cmd * cmd) {
+/*void Turtle::applyCmd(Cmd * cmd) {
 	
 	if (cmd->command == Forward){
 		goForward(runSpeed);
@@ -59,4 +48,4 @@ void Turtle::applyCmd(Cmd * cmd) {
 void Turtle::addCmd(Cmd * cmd) {
 	Cmd * nextCmd = new Cmd();
 	nextCmd->currentCmd = command;
-}
+}*/
