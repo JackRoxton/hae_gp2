@@ -1,6 +1,7 @@
-﻿  Turtle.cpp
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(29): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(33): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(61): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(63): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+﻿  Pong.cpp
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(62): warning C4477: 'fscanf_s' : la chaîne de format '%lld' nécessite un argument de type '__int64 *', mais l'argument variadique 3 est de type 'int64_t'
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(65): warning C4244: 'argument' : conversion de 'int64_t' en 'int', perte possible de données
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(68): warning C4244: 'argument' : conversion de 'int64_t' en 'int', perte possible de données
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(90): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(93): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
   cours3.vcxproj -> C:\WorkSpace_gp2\GitHub\hae_gp2\cours6\x64\Debug\cours3.exe

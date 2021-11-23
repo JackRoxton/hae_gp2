@@ -21,7 +21,9 @@ int main() {
 	int turtleRunSpeed = 10;
 	float turtleTurnSpeed = 10;
 
-
+	char tmp[256];
+	_getcwd(tmp, 256);
+	cout << "Current working directory: " << tmp << endl;
 
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setVerticalSyncEnabled(true);
@@ -42,40 +44,77 @@ int main() {
 				window.close();
 		}
 
+	FILE * file = nullptr;
+	//fscanf;
+	//fprintf;
+	//fclose;
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
+			fopen_s(&file,"res/ui.txt", "rb");
+
+			if (!file)
+				printf("file error ");
+
+			char line[256] = {};
+			if (!feof(file)) {
+				while (true) {
+					int64_t nb = 0;
+					fscanf_s(file, "%s %lld\n", line, 256, nb);
+					std::string s = line;
+					if (s == "Forward") {
+						turtle->goForward(nb);
+					}
+					if (s == "Turn") {
+						turtle->goForward(nb);
+					}
+					if (s == "DrawUp") {
+						turtle->doDraw(true);
+					}
+					if (s == "DrawDown") {
+						turtle->doDraw(false);
+					}
+					if (s == "Color") {
+						//turtle->changeColor(sf::Color(unsigned int)nb)
+					}
+					if (feof(file)) {
+						break;
+					}
+				}
+				fclose(file);
+			}
+		}
+
+
+
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
-			//turtle->goForward(turtleRunSpeed);
 			turtle->addCmd(new Cmd(Forward,turtleRunSpeed));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-			//turtle->goForward(-turtleRunSpeed);
 			turtle->addCmd(new Cmd(Forward, -turtleRunSpeed));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
-			//turtle->turn(-turtleTurnSpeed);
 			turtle->addCmd(new Cmd(Turn, -turtleTurnSpeed));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-			//turtle->turn(turtleTurnSpeed);
 			turtle->addCmd(new Cmd(Turn, turtleTurnSpeed));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-			//turtle->doDraw(true);
 			turtle->addCmd(new Cmd(DrawUp, 0));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)) {
-			//turtle->doDraw(false);
 			turtle->addCmd(new Cmd(DrawDown, 0));
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
-			turtle->drawColor = sf::Color::Red;
+			turtle->changeColor(sf::Color::Red);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
-			turtle->drawColor = sf::Color::Green;
+			turtle->changeColor(sf::Color::Green);
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
-			turtle->drawColor = sf::Color::Blue;
+			turtle->changeColor(sf::Color::Blue);
 		}
+
 
 
 		/*auto pos = player->position;
