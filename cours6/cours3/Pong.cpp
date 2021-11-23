@@ -25,7 +25,7 @@ int main() {
 
 	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
 	window.setVerticalSyncEnabled(true);
-	window.setFramerateLimit(60);
+	//window.setFramerateLimit(60);
 
 	double tStart = getTimeStamp();
 	double tEnterFrame = getTimeStamp();
@@ -43,23 +43,40 @@ int main() {
 		}
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
-			turtle->goForward(turtleRunSpeed);
+			//turtle->goForward(turtleRunSpeed);
+			turtle->addCmd(new Cmd(Forward,turtleRunSpeed));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-			turtle->goForward(-turtleRunSpeed);
+			//turtle->goForward(-turtleRunSpeed);
+			turtle->addCmd(new Cmd(Forward, -turtleRunSpeed));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left) || sf::Keyboard::isKeyPressed(sf::Keyboard::Q)) {
-			turtle->turn(-turtleTurnSpeed);
+			//turtle->turn(-turtleTurnSpeed);
+			turtle->addCmd(new Cmd(Turn, -turtleTurnSpeed));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right) || sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-			turtle->turn(turtleTurnSpeed);
+			//turtle->turn(turtleTurnSpeed);
+			turtle->addCmd(new Cmd(Turn, turtleTurnSpeed));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-			turtle->doDraw();
+			//turtle->doDraw(true);
+			turtle->addCmd(new Cmd(DrawUp, 0));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::X)) {
-			turtle->doNotDraw();
+			//turtle->doDraw(false);
+			turtle->addCmd(new Cmd(DrawDown, 0));
 		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::R)) {
+			turtle->drawColor = sf::Color::Red;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)) {
+			turtle->drawColor = sf::Color::Green;
+		}
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
+			turtle->drawColor = sf::Color::Blue;
+		}
+
 
 		/*auto pos = player->position;
 		double deltaX = dt * 600;
@@ -104,6 +121,7 @@ int main() {
 
 		window.clear();
 
+		turtle->update();
 		turtle->draw(window);
 
 		window.display();

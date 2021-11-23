@@ -4,8 +4,25 @@
 void Turtle::draw(sf::RenderWindow& window) {
 	window.draw(body,transform);
 	window.draw(head,transform);
+
+	drawText.display();
+	sf::Sprite s;
+	s.setTexture(drawText.getTexture());
+	window.draw(s);
+
+
+
 	if (drawState)
-		drawBehind();
+		drawBehind(window);
+}
+
+void Turtle::update() {
+
+
+	while (cmds) {
+		applyCmd(cmds);
+		cmds = cmds->popFirst();
+	}
 }
 
 void Turtle::goForward(int pxl) {
@@ -16,36 +33,49 @@ void Turtle::turn(int deg) {
 	transform.rotate(deg);
 }
 
-void Turtle::doDraw() {
-	drawState = true;
+void Turtle::doDraw(bool state) {
+	drawState = state;
 }
 
-void Turtle::doNotDraw() {
-	drawState = false;
-}
-
-void Turtle::drawBehind() {
-
+void Turtle::drawBehind(sf::RenderWindow& window) {
+	sf::CircleShape tmp = sf::CircleShape(1);
+	tmp.setFillColor(drawColor);
+	drawText.draw(tmp,transform);
 }
 
 void Turtle::changeColor(sf::Color color) {
 	drawColor = color;
 }
 
-/*void Turtle::applyCmd(Cmd * cmd) {
-	
-	if (cmd->command == Forward){
-		goForward(runSpeed);
+
+
+void Turtle::applyCmd(Cmd * cmd) {
+
+	if (!cmd) {
+		return;
 	}
-	else if (command == Backward) {
-		goBackwards(runSpeed);
+
+	//appliquer
+	switch (cmd->command)
+	{
+	case Forward: goForward(cmd->currentVal);
+	break;
+	case Turn: turn(cmd->currentVal);
+	break;
+	case DrawUp: doDraw(true);
+	break;
+	case DrawDown: doDraw(false);
+	break;
 	}
-	else if (command == Turn) {
-		turn(turnSpeed);
-	}
+
 }
 
 void Turtle::addCmd(Cmd * cmd) {
-	Cmd * nextCmd = new Cmd();
-	nextCmd->currentCmd = command;
-}*/
+
+	//ajouter commande
+	if (cmds == nullptr)
+		cmds = cmd;
+	else
+		cmds = cmds->append(cmd);
+
+}

@@ -1,27 +1,57 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 
 enum CmdType {
 	Forward,
 	Turn,
+	DrawUp,
+	DrawDown,
 };
 
 struct Cmd {
 public:
-	Cmd* data;
-	float currentCmd = 0;
+	float currentVal = 0;
+	float originalVal = 0;
+	CmdType command = Forward;
 	Cmd* next = nullptr;
+
+	Cmd(CmdType c, float val) {
+		command = c;
+		currentVal = val;
+		originalVal = val;
+	}
+
+	Cmd * append(Cmd * cmd) {
+		if (next == nullptr) {
+			next = cmd;
+		}
+		else {
+			next->append(cmd);
+		}
+		return this;
+	}
+
+	Cmd * popFirst() {
+		Cmd * cmd = next;
+		delete this;
+		return cmd;
+	}
 };
 
 class Turtle{
 public:
-	sf::Transform transform;
-	float rotation;
+	
 	sf::CircleShape body;
 	sf::RectangleShape head;
 	bool drawState = true;
 	sf::Color drawColor = sf::Color::Magenta;
+
+	sf::RenderTexture drawText;
+
+	Cmd * cmds = nullptr;
+
 
 	int runSpeed = 10;
 	float turnSpeed = 10;
@@ -34,17 +64,22 @@ public:
 		head = sf::RectangleShape(sf::Vector2f(16, 16));
 		head.setOrigin(-28, 8);
 		head.setFillColor(sf::Color::Red);
+
+		drawText.create(1280, 720);
 	}
 
 	void draw(sf::RenderWindow& window);
+	void update();
 
 	void goForward(int pxl);
 	void turn(int deg);
-	void doDraw();
-	void doNotDraw();
+	void doDraw(bool state);
 	void changeColor(sf::Color color);
-	void drawBehind();
+	void drawBehind(sf::RenderWindow& window);
 
-	void applyCmd(CmdType command);
-	void addCmd(CmdType command);
+	void applyCmd(Cmd* cmd);
+	void addCmd(Cmd* cmd);
+
+protected:
+	sf::Transform transform;
 };
