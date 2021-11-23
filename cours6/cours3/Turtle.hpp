@@ -47,7 +47,7 @@ public:
 	sf::RectangleShape head;
 	bool drawState = true;
 	sf::Color drawColor = sf::Color::Magenta;
-
+	float timer = 1.0f;
 	sf::RenderTexture drawText;
 
 	Cmd * cmds = nullptr;
@@ -57,7 +57,7 @@ public:
 	float turnSpeed = 10;
 
 	Turtle() {
-		transform.transformPoint(sf::Vector2f(200, 200));
+		transform.transformPoint(sf::Vector2f(400, 400));
 		body = sf::CircleShape(32);
 		body.setOrigin(32, 32);
 		body.setFillColor(sf::Color::Green);
@@ -69,7 +69,7 @@ public:
 	}
 
 	void draw(sf::RenderWindow& window);
-	void update();
+	void update(double dt);
 
 	void goForward(int pxl);
 	void turn(int deg);

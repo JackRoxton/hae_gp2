@@ -16,16 +16,15 @@ void Turtle::draw(sf::RenderWindow& window) {
 		drawBehind(window);
 }
 
-void Turtle::update() {
+void Turtle::update(double dt) {
 
-
-	while (cmds) {
+	if (cmds) {  // if ou while ?
 		applyCmd(cmds);
 		cmds = cmds->popFirst();
 	}
 }
 
-void Turtle::goForward(int pxl) {
+void Turtle::goForward(int pxl) { //faire ça 100/val% fois en multipliant pxl par val% pour un smooth ?
 	transform.translate(pxl,0);
 }
 
@@ -51,11 +50,10 @@ void Turtle::changeColor(sf::Color color) {
 
 void Turtle::applyCmd(Cmd * cmd) {
 
+	//ajouter un timer ou un smooth pour pas que ça se téléporte depuis le fichier
 	if (!cmd) {
 		return;
 	}
-
-	//appliquer
 	switch (cmd->command)
 	{
 	case Forward: goForward(cmd->currentVal);
@@ -72,7 +70,6 @@ void Turtle::applyCmd(Cmd * cmd) {
 
 void Turtle::addCmd(Cmd * cmd) {
 
-	//ajouter commande
 	if (cmds == nullptr)
 		cmds = cmd;
 	else

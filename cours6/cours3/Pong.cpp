@@ -34,6 +34,8 @@ int main() {
 	double tExitFrame = getTimeStamp();
 	bool mouseLeftWasPressed = false;
 
+	bool flagO;
+	bool flagOwp;
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -45,36 +47,34 @@ int main() {
 		}
 
 	FILE * file = nullptr;
-	//fscanf;
-	//fprintf;
-	//fclose;
-
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::O)) {
+	
+	flagO = sf::Keyboard::isKeyPressed(sf::Keyboard::O);
+		if (flagO && !flagOwp) {
 			fopen_s(&file,"res/ui.txt", "rb");
 
 			if (!file)
 				printf("file error ");
 
 			char line[256] = {};
-			if (!feof(file)) {
-				while (true) {
+			if (file && !feof(file)) {
+				while (true) { //ma tortue se téléporte donc virer while dans l'update et mettre un timer dans le applyCmd
 					int64_t nb = 0;
-					fscanf_s(file, "%s %lld\n", line, 256, nb);
+					fscanf_s(file, "%s %lld\n", line, 256, &nb);
 					std::string s = line;
 					if (s == "Forward") {
-						turtle->goForward(nb);
+						turtle->addCmd(new Cmd(Forward, nb));
 					}
 					if (s == "Turn") {
-						turtle->goForward(nb);
+						turtle->addCmd(new Cmd(Turn, nb));
 					}
 					if (s == "DrawUp") {
-						turtle->doDraw(true);
+						turtle->addCmd(new Cmd(DrawUp, nb));
 					}
 					if (s == "DrawDown") {
-						turtle->doDraw(false);
+						turtle->addCmd(new Cmd(DrawDown, nb));
 					}
 					if (s == "Color") {
-						//turtle->changeColor(sf::Color(unsigned int)nb)
+						//turtle->changeColor(sf::Color(unsigned int)nb) //couleurs en hexadécimal 
 					}
 					if (feof(file)) {
 						break;
@@ -83,8 +83,7 @@ int main() {
 				fclose(file);
 			}
 		}
-
-
+	flagOwp = sf::Keyboard::isKeyPressed(sf::Keyboard::O);
 
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
 			turtle->addCmd(new Cmd(Forward,turtleRunSpeed));
@@ -160,7 +159,7 @@ int main() {
 
 		window.clear();
 
-		turtle->update();
+		turtle->update(dt);
 		turtle->draw(window);
 
 		window.display();
