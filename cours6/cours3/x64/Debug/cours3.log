@@ -1,6 +1,6 @@
 ﻿  Turtle.cpp
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(28): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(32): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(59): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(61): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-  cours3.vcxproj -> C:\WorkSpace_gp2\GitHub\hae_gp2\cours6\x64\Debug\cours3.exe
+c:\workspacegp2\hae_gp2\cours6\cours3\turtle.cpp(28): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours6\cours3\turtle.cpp(32): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours6\cours3\turtle.cpp(59): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+c:\workspacegp2\hae_gp2\cours6\cours3\turtle.cpp(61): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  cours3.vcxproj -> C:\WorkSpacegp2\hae_gp2\cours6\x64\Debug\cours3.exe

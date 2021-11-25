@@ -57,22 +57,74 @@ void Turtle::applyCmd(Cmd * cmd) {
 	switch (cmd->command)
 	{
 	case Forward: goForward(cmd->currentVal);
-	break;
+		break;
 	case Turn: turn(cmd->currentVal);
-	break;
+		break;
 	case DrawUp: doDraw(true);
-	break;
-	case DrawDown: doDraw(false);
-	break;
+		break;
+	case DrawDown: doDraw(false);	
+		break;
 	}
 
 }
 
 void Turtle::addCmd(Cmd * cmd) {
-
-	if (cmds == nullptr)
-		cmds = cmd;
+	if(archive == nullptr)
+		archive = cmd;
 	else
+		archive = archive->append(cmd);//boucle infinie ?
+
+	if (cmds == nullptr){
+		cmds = cmd;
+	}
+	else {
 		cmds = cmds->append(cmd);
+	}
+}
+
+void Turtle::reset() {
+	transform = transform.Identity;
+	transform.translate(200, 200);
+	drawText.clear(sf::Color(0,0,0,0));
+	while (cmds) {
+		cmds = cmds->popFirst();
+	}
+}
+
+void Turtle::saveAll(FILE * file) {
+	fopen_s(&file, "res/save.txt", "a");
+
+	saveOnce(file,archive);
+
+	fflush(file);
+	fclose(file);
+}
+
+void Turtle::saveOnce(FILE * file, Cmd* cmd) {
+
+	switch (cmd->command)
+	{
+	case Forward: {
+		char fwd[] = "Forward\n";
+		fwrite(fwd, strlen(fwd), 1, file);
+		//fprintf(file,"Forward\n");
+		break;
+	}
+	case Turn: {
+		char t[] = "Turn\n";
+		fwrite(t, strlen(t), 1, file);
+		break;
+	}
+	case DrawUp: {
+		char du[] = "DrawUp\n";
+		fwrite(du, strlen(du), 1, file);
+		break; 
+	}
+	case DrawDown: {
+		char dd[] = "DrawDown\n";
+		fwrite(dd, strlen(dd), 1, file);
+		break;
+	}
+	}
 
 }

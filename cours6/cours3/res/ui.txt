@@ -1,7 +1,7 @@
 DrawDown
-Forward 300
-Turn 45
-Forward 300
+Forward 50
+Turn 25
+Forward 50
 DrawUp
 Forward 10
 Turn 10
@@ -11,4 +11,9 @@ Forward 10
 Turn 10
 Forward 10
 Turn 10
-
+Forward 10
+Forward -25
+Forward 50
+Turn -45
+Forward 150
+Forward -50

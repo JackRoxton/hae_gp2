@@ -51,13 +51,13 @@ public:
 	sf::RenderTexture drawText;
 
 	Cmd * cmds = nullptr;
+	Cmd * archive = nullptr;
 
-
-	int runSpeed = 10;
-	float turnSpeed = 10;
+	/*int runSpeed = 10;
+	float turnSpeed = 10;*/
 
 	Turtle() {
-		transform.transformPoint(sf::Vector2f(400, 400));
+		transform.translate(sf::Vector2f(200, 200));
 		body = sf::CircleShape(32);
 		body.setOrigin(32, 32);
 		body.setFillColor(sf::Color::Green);
@@ -79,6 +79,11 @@ public:
 
 	void applyCmd(Cmd* cmd);
 	void addCmd(Cmd* cmd);
+
+	void reset();
+
+	void saveAll(FILE * file);
+	void saveOnce(FILE * file,Cmd* cmd);
 
 protected:
 	sf::Transform transform;

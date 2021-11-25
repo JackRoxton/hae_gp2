@@ -16,6 +16,8 @@
 #include <SFML/Audio.hpp>
 #include "Turtle.hpp"
 
+#include "FileWatcher.hpp"
+
 int main() {
 	Turtle * turtle = new Turtle();
 	int turtleRunSpeed = 10;
@@ -36,6 +38,10 @@ int main() {
 
 	bool flagO;
 	bool flagOwp;
+	FILE * file = nullptr;
+	FileWatcher* fW = new FileWatcher();
+	bool reinterpret = false;
+	float timer = 0.0f;
 
 	while (window.isOpen()) {
 		sf::Event event;
@@ -46,18 +52,29 @@ int main() {
 				window.close();
 		}
 
-	FILE * file = nullptr;
+
+		if (timer >= 0.5f) {
+			if (fW->hasChanged()) {
+				reinterpret = true;
+				turtle->reset();
+			}
+			timer = 0.0f;
+		}
+
+		if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
+			turtle->saveAll(file);
+		}
 	
-	flagO = sf::Keyboard::isKeyPressed(sf::Keyboard::O);
-		if (flagO && !flagOwp) {
+		flagO = sf::Keyboard::isKeyPressed(sf::Keyboard::O);
+		if ((flagO && !flagOwp)||reinterpret) {
 			fopen_s(&file,"res/ui.txt", "rb");
 
 			if (!file)
 				printf("file error ");
 
 			char line[256] = {};
-			if (file && !feof(file)) {
-				while (true) { //ma tortue se téléporte donc virer while dans l'update et mettre un timer dans le applyCmd
+			if (file && !feof(file)) { //reinterpret
+				while (true) { 
 					int64_t nb = 0;
 					fscanf_s(file, "%s %lld\n", line, 256, &nb);
 					std::string s = line;
@@ -82,6 +99,7 @@ int main() {
 				}
 				fclose(file);
 			}
+			reinterpret = false;
 		}
 	flagOwp = sf::Keyboard::isKeyPressed(sf::Keyboard::O);
 
@@ -164,7 +182,7 @@ int main() {
 
 		window.display();
 		tExitFrame = getTimeStamp();
-
+		timer += dt;
 	}
 
 	return 0;
