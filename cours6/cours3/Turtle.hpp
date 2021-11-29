@@ -51,7 +51,7 @@ public:
 	sf::RenderTexture drawText;
 
 	Cmd * cmds = nullptr;
-	Cmd * archive = nullptr;
+	//Cmd * archive = nullptr;
 
 	/*int runSpeed = 10;
 	float turnSpeed = 10;*/

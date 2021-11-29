@@ -69,10 +69,10 @@ void Turtle::applyCmd(Cmd * cmd) {
 }
 
 void Turtle::addCmd(Cmd * cmd) {
-	if(archive == nullptr)
+	/*if(archive == nullptr)
 		archive = cmd;
 	else
-		archive = archive->append(cmd);//boucle infinie ?
+		archive = archive->append(cmd);//boucle infinie ?*/
 
 	if (cmds == nullptr){
 		cmds = cmd;
@@ -94,7 +94,7 @@ void Turtle::reset() {
 void Turtle::saveAll(FILE * file) {
 	fopen_s(&file, "res/save.txt", "a");
 
-	saveOnce(file,archive);
+	//saveOnce(file,archive);
 
 	fflush(file);
 	fclose(file);

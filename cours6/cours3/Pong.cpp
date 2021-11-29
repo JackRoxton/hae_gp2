@@ -18,7 +18,19 @@
 
 #include "FileWatcher.hpp"
 
+#include "imgui/imgui.h"
+#include "imgui\imgui-SFML.h"
+
 int main() {
+	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
+	window.setVerticalSyncEnabled(true);
+	//window.setFramerateLimit(60);
+
+	ImGui::SFML::Init(window);
+
+
+	sf::Clock deltaClock;
+
 	Turtle * turtle = new Turtle();
 	int turtleRunSpeed = 10;
 	float turtleTurnSpeed = 10;
@@ -27,9 +39,6 @@ int main() {
 	_getcwd(tmp, 256);
 	cout << "Current working directory: " << tmp << endl;
 
-	sf::RenderWindow window(sf::VideoMode(1280, 720), "SFML works!");
-	window.setVerticalSyncEnabled(true);
-	//window.setFramerateLimit(60);
 
 	double tStart = getTimeStamp();
 	double tEnterFrame = getTimeStamp();
@@ -48,6 +57,7 @@ int main() {
 		double dt = tExitFrame - tEnterFrame;
 		tEnterFrame = getTimeStamp();
 		while (window.pollEvent(event)) {
+		ImGui::SFML::ProcessEvent(window, event);
 			if (event.type == sf::Event::Closed)
 				window.close();
 		}
@@ -175,10 +185,18 @@ int main() {
 			window.setPosition(sf::Vector2i(100 + rand() % 25, 100 + rand() % 25));
 		}*/
 
+		ImGui::SFML::Update(window, deltaClock.restart());
+
+		ImGui::Begin("Hello, world!");
+		ImGui::Button("Look at this pretty button");
+		ImGui::End();
+
 		window.clear();
 
 		turtle->update(dt);
 		turtle->draw(window);
+
+		ImGui::SFML::Render(window);
 
 		window.display();
 		tExitFrame = getTimeStamp();
