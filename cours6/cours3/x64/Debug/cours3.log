@@ -1,9 +1,8 @@
 ﻿  Pong.cpp
-d:\unity\hae_gp2\cours6\cours3\pong.cpp(92): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
-d:\unity\hae_gp2\cours6\cours3\pong.cpp(95): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
-d:\unity\hae_gp2\cours6\cours3\pong.cpp(98): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
-d:\unity\hae_gp2\cours6\cours3\pong.cpp(101): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
-d:\unity\hae_gp2\cours6\cours3\pong.cpp(117): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-d:\unity\hae_gp2\cours6\cours3\pong.cpp(120): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-d:\unity\hae_gp2\cours6\cours3\pong.cpp(203): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
-  cours3.vcxproj -> D:\unity\hae_gp2\cours6\x64\Debug\cours3.exe
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(106): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(109): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(112): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(115): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(335): warning C4244: 'argument' : conversion de 'float' en 'sf::Uint8', perte possible de données
+c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(344): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+  cours3.vcxproj -> C:\WorkSpace_gp2\GitHub\hae_gp2\cours6\x64\Debug\cours3.exe

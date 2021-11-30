@@ -18,13 +18,13 @@ void Turtle::draw(sf::RenderWindow& window) {
 
 void Turtle::update(double dt) {
 
-	if (cmds) {  // if ou while ?
+	if (cmds) {  
 		applyCmd(cmds);
 		cmds = cmds->popFirst();
 	}
 }
 
-void Turtle::goForward(int pxl) { //faire ça 100/val% fois en multipliant pxl par val% pour un smooth ?
+void Turtle::goForward(int pxl) {
 	transform.translate(pxl,0);
 }
 
@@ -38,7 +38,7 @@ void Turtle::doDraw(bool state) {
 
 void Turtle::drawBehind(sf::RenderWindow& window) {
 	sf::CircleShape tmp = sf::CircleShape(1);
-	tmp.setFillColor(drawColor);
+	tmp.setFillColor(sf::Color((int)(penColor[0]*255),(int)(penColor[1] * 255),(int)(penColor[2] * 255)));
 	drawText.draw(tmp,transform);
 }
 
@@ -50,7 +50,7 @@ void Turtle::changeColor(sf::Color color) {
 
 void Turtle::applyCmd(Cmd * cmd) {
 
-	//ajouter un timer ou un smooth pour pas que ça se téléporte depuis le fichier
+	
 	if (!cmd) {
 		return;
 	}
@@ -72,7 +72,7 @@ void Turtle::addCmd(Cmd * cmd) {
 	/*if(archive == nullptr)
 		archive = cmd;
 	else
-		archive = archive->append(cmd);//boucle infinie ?*/
+		archive = archive->append(cmd);//boucle infinie*/
 
 	if (cmds == nullptr){
 		cmds = cmd;
@@ -94,7 +94,7 @@ void Turtle::reset() {
 void Turtle::saveAll(FILE * file) {
 	fopen_s(&file, "res/save.txt", "a");
 
-	//saveOnce(file,archive);
+	saveOnce(file,cmds);
 
 	fflush(file);
 	fclose(file);

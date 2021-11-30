@@ -4,22 +4,22 @@
 bool FileWatcher::hasChanged() {
 	result = _stat(filename, &buf);
 	if (result != 0) {
-		printf("res error");
+		//printf("res error");
 		return false;
 	}
 	err = ctime_s(timeBuf, 26, &buf.st_mtime);
 	if (err) {
-		printf("err error");
+		//printf("err error");
 		return false;
 	}
 
 
-	printf("%s\n", timeBuf);
+	//printf("%s\n", timeBuf);
 	if (buf.st_mtime != lastChangeTime) {
 		lastChangeTime = buf.st_mtime;
-		printf("true");
+		//printf("true");
 		return true;
 	}
-	printf("false");
+	//printf("false");
 	return false;
 }

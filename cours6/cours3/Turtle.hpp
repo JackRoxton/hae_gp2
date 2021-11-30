@@ -8,6 +8,7 @@ enum CmdType {
 	Turn,
 	DrawUp,
 	DrawDown,
+	DrawColor,
 };
 
 struct Cmd {
@@ -47,6 +48,7 @@ public:
 	sf::RectangleShape head;
 	bool drawState = true;
 	sf::Color drawColor = sf::Color::Magenta;
+	float penColor[3] = {(float) 204 / 255,(float)77 / 255,(float)5 / 255 };
 	float timer = 1.0f;
 	sf::RenderTexture drawText;
 
@@ -75,6 +77,7 @@ public:
 	void turn(int deg);
 	void doDraw(bool state);
 	void changeColor(sf::Color color);
+
 	void drawBehind(sf::RenderWindow& window);
 
 	void applyCmd(Cmd* cmd);

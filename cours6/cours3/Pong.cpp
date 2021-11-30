@@ -52,6 +52,20 @@ int main() {
 	bool reinterpret = false;
 	float timer = 0.0f;
 
+
+
+	bool imguiBtSave = false;
+	bool imguiBtLoad = false;
+	bool imguiForward = false, imguiTurn = false;
+	float imguiSpeed = 10, imguiTurnSpeed = 10;
+	bool showTools = true;
+	float bg[3] = {0,0,0};
+
+	char commandText[256] = "";
+
+	int nTxt = 0;
+
+
 	while (window.isOpen()) {
 		sf::Event event;
 		double dt = tExitFrame - tEnterFrame;
@@ -71,12 +85,12 @@ int main() {
 			timer = 0.0f;
 		}
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::P)) {
+		if (imguiBtSave) {
 			turtle->saveAll(file);
 		}
 	
 		flagO = sf::Keyboard::isKeyPressed(sf::Keyboard::O);
-		if ((flagO && !flagOwp)||reinterpret) {
+		if (reinterpret||imguiBtLoad) {
 			fopen_s(&file,"res/ui.txt", "rb");
 
 			if (!file)
@@ -100,8 +114,8 @@ int main() {
 					if (s == "DrawDown") {
 						turtle->addCmd(new Cmd(DrawDown, nb));
 					}
-					if (s == "Color") {
-						//turtle->changeColor(sf::Color(unsigned int)nb) //couleurs en hexadécimal 
+					if (s == "DrawColor") {
+						//turtle->changeColor(sf::Color(unsigned int)nb) //couleurs en hexadécimal ou r g b
 					}
 					if (feof(file)) {
 						break;
@@ -113,7 +127,7 @@ int main() {
 		}
 	flagOwp = sf::Keyboard::isKeyPressed(sf::Keyboard::O);
 
-		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
+		/*if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up) || sf::Keyboard::isKeyPressed(sf::Keyboard::Z)) {
 			turtle->addCmd(new Cmd(Forward,turtleRunSpeed));
 		}
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down) || sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
@@ -141,10 +155,7 @@ int main() {
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::B)) {
 			turtle->changeColor(sf::Color::Blue);
 		}
-
-
-
-		/*auto pos = player->position;
+		auto pos = player->position;
 		double deltaX = dt * 600;
 		double deltaY = dt * 600;
 		bool keyHit = false;
@@ -168,8 +179,8 @@ int main() {
 		if (keyHit)
 		{
 			player->position = pos;
-		}*/
-		/*bool mouseLeftIsPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
+		}
+		bool mouseLeftIsPressed = sf::Mouse::isButtonPressed(sf::Mouse::Left);
 		bool mouseIsReleased = (!mouseLeftIsPressed && mouseLeftWasPressed);
 
 		sf::Vector2f mousePos = sf::Vector2f(sf::Mouse::getPosition(window));
@@ -185,13 +196,142 @@ int main() {
 			window.setPosition(sf::Vector2i(100 + rand() % 25, 100 + rand() % 25));
 		}*/
 
+	if (imguiForward) {
+		turtle->addCmd(new Cmd(Forward, imguiSpeed));
+	}
+	if (imguiTurn) {
+		turtle->addCmd(new Cmd(Turn, imguiTurnSpeed));
+	}
+
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
+		if (showTools)
+			showTools = false;
+		else
+			showTools = true;
+	}
+
+
+
+
 		ImGui::SFML::Update(window, deltaClock.restart());
+		ImGui::ShowDemoWindow();
 
-		ImGui::Begin("Hello, world!");
-		ImGui::Button("Look at this pretty button");
-		ImGui::End();
+		//faire liste éditable en temps réel
+		//pouvoir l'envoyer en commandes à la tortue
 
-		window.clear();
+		if (showTools){
+			ImGui::SetNextWindowBgAlpha(0.1f);
+			ImGui::Begin("Window.exe");
+			ImGui::ColorEdit3("PickDrawColor", turtle->penColor);
+
+			ImGui::ColorEdit3("PickBgColor",bg);
+			
+
+			/*ImGui::Begin("Save-Loader");
+			if (ImGui::Button("Load"))
+				imguiBtLoad = true;
+			else
+				imguiBtLoad = false;
+
+			if (ImGui::Button("Save"))
+				imguiBtSave = true;
+			else
+				imguiBtSave = false;
+
+			ImGui::End();*/
+
+			if (ImGui::Button("Forward"))
+				imguiForward = true;
+			else
+				imguiForward = false;
+
+			if (ImGui::Button("Turn"))
+				imguiTurn = true;
+			else
+				imguiTurn = false;
+
+			ImGui::SliderFloat("speed", &imguiSpeed, -50.0f, 50.0f);
+			ImGui::SliderFloat("turn speed", &imguiTurnSpeed, -50.0f, 50.0f);
+
+			//ImGui::ProgressBar(0.5f);
+
+			/*ImGui::Begin("CommandsInput");
+			ImGui::InputTextMultiline("commands", commandText, IM_ARRAYSIZE(commandText));
+			ImGui::End();*/
+			static Cmd * head = nullptr;
+
+			ImGui::Text("commands");
+
+			if (ImGui::Button("+")) {
+				auto p = new Cmd(Forward,imguiSpeed);
+
+				if (nullptr == head) {
+					head = p;
+				}
+				else {
+					head = head->append(p);
+				}
+			}
+
+			ImGui::Separator();
+
+			int idx = 0;
+			auto h = head;
+			while (h) {
+				ImGui::PushID(idx);
+				ImGui::Value("idx", idx);
+				//
+				static const char* items[] = { "Forward",
+												"Turn",
+												"DrawUp",
+												"DrawDown",};
+				ImGui::Combo("CmdType", (int*)&h->command, items,IM_ARRAYSIZE(items));
+				//
+				if(h->command != DrawUp && h->command != DrawDown)
+					ImGui::DragFloat("value", &h->currentVal);
+				ImGui::NewLine();
+				ImGui::Separator();
+				h = h->next;
+				idx++;
+				ImGui::PopID();
+			}
+
+
+
+			if (ImGui::Button("Run")) {
+				if (!turtle->cmds){
+					turtle->cmds = head;
+					head = nullptr;
+				}
+			}
+			ImGui::SameLine();
+			if (ImGui::Button("Load")) {
+				FILE * file;
+				fopen_s(&file, "res/save.txt","rb");
+				//voir plus haut
+				fclose(file);
+			}
+			ImGui::SameLine();
+			if (ImGui::Button("Save")) {
+				auto u = head;
+				FILE * file;
+				fopen_s(&file, "res/save.txt", "w");
+				while (u){
+					turtle->saveOnce(file, u);
+					u = u->next;
+				}
+				fclose(file);
+
+			}
+			ImGui::SameLine();
+			if (ImGui::Button("Clear")) {
+
+			}
+
+			ImGui::End();
+		}
+
+		window.clear(sf::Color(bg[0]*255, bg[1]*255, bg[2]*255));
 
 		turtle->update(dt);
 		turtle->draw(window);
@@ -202,6 +342,7 @@ int main() {
 		tExitFrame = getTimeStamp();
 		timer += dt;
 	}
+	ImGui::SFML::Shutdown();
 
 	return 0;
 }
