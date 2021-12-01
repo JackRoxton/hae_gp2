@@ -1,8 +1,56 @@
-﻿  Pong.cpp
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(106): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(109): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(112): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(115): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(335): warning C4244: 'argument' : conversion de 'float' en 'sf::Uint8', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(344): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
-  cours3.vcxproj -> C:\WorkSpace_gp2\GitHub\hae_gp2\cours6\x64\Debug\cours3.exe
+﻿  pch.cpp
+  Entity.cpp
+d:\unity\hae_gp2\cours6\cours3\entity.cpp(11): warning C4244: '+=' : conversion de 'double' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+  FileWatcher.cpp
+  imgui-SFML.cpp
+  imgui.cpp
+  imgui_demo.cpp
+  imgui_draw.cpp
+  imgui_tables.cpp
+  imgui_widgets.cpp
+  particle.cpp
+d:\unity\hae_gp2\cours6\cours3\particle.cpp(2): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+d:\unity\hae_gp2\cours6\cours3\particle.cpp(6): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\particle.cpp(8): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\cours6\cours3\particle.cpp(35): warning C4244: '+=' : conversion de 'double' en '_Ty', perte possible de données
+          with
+          [
+              _Ty=float
+          ]
+d:\unity\hae_gp2\cours6\cours3\particle.cpp(36): warning C4244: '+=' : conversion de 'double' en '_Ty', perte possible de données
+          with
+          [
+              _Ty=float
+          ]
+d:\unity\hae_gp2\cours6\cours3\particle.cpp(65): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\particle.cpp(65): warning C4267: 'initialisation' : conversion de 'size_t' en 'const int', perte possible de données
+  Pong.cpp
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(106): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(109): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(112): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(115): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(319): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(322): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(327): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(330): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(335): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(338): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(343): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(346): warning C4244: 'argument' : conversion de 'int64_t' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(376): warning C4244: 'argument' : conversion de 'float' en 'sf::Uint8', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\pong.cpp(385): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+  Turtle.cpp
+d:\unity\hae_gp2\cours6\cours3\turtle.cpp(28): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\turtle.cpp(32): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\turtle.cpp(59): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+d:\unity\hae_gp2\cours6\cours3\turtle.cpp(61): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  Génération de code en cours...
+  cours3.vcxproj -> D:\unity\hae_gp2\cours6\x64\Debug\cours3.exe

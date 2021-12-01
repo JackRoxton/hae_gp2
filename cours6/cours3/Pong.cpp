@@ -308,7 +308,49 @@ int main() {
 			if (ImGui::Button("Load")) {
 				FILE * file;
 				fopen_s(&file, "res/save.txt","rb");
-				//voir plus haut
+				char line[256] = {};
+				if (file && !feof(file)) { //reinterpret
+					while (true) {
+						int64_t nb = 0;
+						fscanf_s(file, "%s %lld\n", line, 256, &nb);
+						std::string s = line;
+						if (s == "Forward") {
+							if (nullptr == head) {
+								head = new Cmd(Forward, nb);
+							}
+							else {
+								head = head->append(new Cmd(Forward, nb));
+							}
+						}
+						if (s == "Turn") {
+							if (nullptr == head) {
+								head = new Cmd(Turn, nb);
+							}
+							else {
+								head = head->append(new Cmd(Turn, nb));
+							}
+						}
+						if (s == "DrawUp") {
+							if (nullptr == head) {
+								head = new Cmd(DrawUp, nb);
+							}
+							else {
+								head = head->append(new Cmd(DrawUp, nb));
+							}
+						}
+						if (s == "DrawDown") {
+							if (nullptr == head) {
+								head = new Cmd(DrawDown,nb);
+							}
+							else {
+								head = head->append(new Cmd(DrawDown,nb));
+							}
+						}
+						if (feof(file)) {
+							break;
+						}
+					}
+				}
 				fclose(file);
 			}
 			ImGui::SameLine();
