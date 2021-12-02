@@ -1,0 +1,20 @@
+﻿  Source.cpp
+c:\workspacegp2\hae_gp2\cours7\cours3\entity.hpp(23): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\workspacegp2\hae_gp2\cours7\cours3\entity.hpp(24): warning C4244: '=' : conversion de 'float' en 'int', perte possible de données
+c:\workspacegp2\hae_gp2\cours7\cours3\source.cpp(32): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+c:\workspacegp2\hae_gp2\cours7\cours3\source.cpp(32): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours7\cours3\source.cpp(39): warning C4244: 'argument' : conversion de 'T' en 'float', perte possible de données
+          with
+          [
+              T=unsigned int
+          ]
+c:\workspacegp2\hae_gp2\cours7\cours3\source.cpp(39): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours7\cours3\source.cpp(63): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours7\cours3\source.cpp(66): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours7\cours3\source.cpp(69): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+c:\workspacegp2\hae_gp2\cours7\cours3\source.cpp(72): warning C4244: '=' : conversion de 'double' en 'float', perte possible de données
+  cours3.vcxproj -> C:\WorkSpacegp2\hae_gp2\cours7\x64\Debug\cours3.exe

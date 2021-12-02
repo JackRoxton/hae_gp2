@@ -1,0 +1,33 @@
+DrawUp
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 25
+Turn 25
+Forward 50
+Turn 50
+
+

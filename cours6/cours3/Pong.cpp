@@ -280,13 +280,13 @@ int main() {
 			while (h) {
 				ImGui::PushID(idx);
 				ImGui::Value("idx", idx);
-				//
+				
 				static const char* items[] = { "Forward",
 												"Turn",
 												"DrawUp",
 												"DrawDown",};
 				ImGui::Combo("CmdType", (int*)&h->command, items,IM_ARRAYSIZE(items));
-				//
+				
 				if(h->command != DrawUp && h->command != DrawDown)
 					ImGui::DragFloat("value", &h->currentVal);
 				ImGui::NewLine();
@@ -309,7 +309,7 @@ int main() {
 				FILE * file;
 				fopen_s(&file, "res/save.txt","rb");
 				char line[256] = {};
-				if (file && !feof(file)) { //reinterpret
+				if (file && !feof(file)) {
 					while (true) {
 						int64_t nb = 0;
 						fscanf_s(file, "%s %lld\n", line, 256, &nb);
@@ -367,7 +367,9 @@ int main() {
 			}
 			ImGui::SameLine();
 			if (ImGui::Button("Clear")) {
-
+				if (head) {
+					head = nullptr;
+				}
 			}
 
 			ImGui::End();
