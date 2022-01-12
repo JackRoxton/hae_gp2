@@ -1,0 +1,32 @@
+﻿  Entity.cpp
+d:\unity\hae_gp2\tanksproject\cours3\entity.cpp(101): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?
+  imgui-SFML.cpp
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui-sfml.cpp(1109): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?
+  imgui.cpp
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui.cpp(2177): warning C4005: 'va_copy' : redéfinition de macro
+  d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui.cpp(2175): note: voir la définition précédente de 'va_copy'
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui.cpp(12389): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?
+  imgui_demo.cpp
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_demo.cpp(128): warning C4005: 'IM_NEWLINE' : redéfinition de macro
+  d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_demo.cpp(126): note: voir la définition précédente de 'IM_NEWLINE'
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_demo.cpp(145): warning C4005: 'IM_PRId64' : redéfinition de macro
+  d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_demo.cpp(142): note: voir la définition précédente de 'IM_PRId64'
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_demo.cpp(146): warning C4005: 'IM_PRIu64' : redéfinition de macro
+  d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_demo.cpp(143): note: voir la définition précédente de 'IM_PRIu64'
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_demo.cpp(162): warning C4005: 'IMGUI_CDECL' : redéfinition de macro
+  d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_demo.cpp(160): note: voir la définition précédente de 'IMGUI_CDECL'
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_demo.cpp(7850): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?
+  imgui_draw.cpp
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_draw.cpp(138): error C2006: '#include' : nom de fichier attendu, 'identificateur' rencontré
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_draw.cpp(162): error C2006: '#include' : nom de fichier attendu, 'identificateur' rencontré
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_draw.cpp(4180): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?
+  imgui_tables.cpp
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_tables.cpp(4050): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?
+  imgui_widgets.cpp
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_widgets.cpp(3692): warning C4005: 'STB_TEXTEDIT_MOVEWORDRIGHT' : redéfinition de macro
+  d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_widgets.cpp(3690): note: voir la définition précédente de 'STB_TEXTEDIT_MOVEWORDRIGHT'
+d:\unity\hae_gp2\tanksproject\cours3\imgui\imgui_widgets.cpp(8248): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?
+  Source.cpp
+d:\unity\hae_gp2\tanksproject\cours3\source.cpp(194): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?
+  World.cpp
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(339): fatal error C1010: fin de fichier inattendue lors de la recherche d'un en-tête précompilé. N'auriez-vous pas oublié d'ajouter '#include "pch.h"' à votre source ?

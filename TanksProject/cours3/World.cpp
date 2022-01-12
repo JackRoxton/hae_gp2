@@ -45,22 +45,22 @@ void World::ColMissile(Entity* e, Entity* f) {
 	FloatRect eHB = e->spr->getGlobalBounds();
 	FloatRect fHB = f->spr->getGlobalBounds();
 	if (f->type == _Wall) {
-		if ((e->cleanPosition.y < fHB.top)) {
+		if ((e->position.y < fHB.top)) {
 			e->cleanPosition.y -= eHB.height / 2;
 			e->position = e->cleanPosition;
 			e->direction.y *= -1;
 		}
-		else if ((e->cleanPosition.y > (fHB.top + fHB.height))) {
+		else if ((e->position.y > (fHB.top + fHB.height))) {
 			e->cleanPosition.y += eHB.height / 2;
 			e->position = e->cleanPosition;
 			e->direction.y *= -1;
 		}
-		else if (e->cleanPosition.x < fHB.left) {
+		else if (e->position.x < fHB.left) {
 			e->cleanPosition.x -= eHB.width / 2;
 			e->position = e->cleanPosition;
 			e->direction.x *= -1;
 		}
-		else if (e->cleanPosition.x > (fHB.left + fHB.width)) {
+		else if (e->position.x > (fHB.left + fHB.width)) {
 			e->cleanPosition.x += eHB.width / 2;
 			e->position = e->cleanPosition;
 			e->direction.x *= -1;

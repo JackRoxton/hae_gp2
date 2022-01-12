@@ -13,6 +13,16 @@ int clamp(int a,int limitmax,int limitmin) {
 	return a;
 }
 
+int nrm(int a, int up, int dwn) {
+	if (a > 0) {
+		a = up;
+	}
+	else if (a < 0) {
+		a = dwn;
+	}
+	return a;
+}
+
 void Entity::move(sf::Vector2f dir) {
 	direction += dir;
 	direction.x = clamp(direction.x, 100 * speed, -100 * speed);
@@ -74,10 +84,10 @@ void Entity::update(double dt, RenderWindow& window) {
 			}
 			this->move(sf::Vector2f(val1, val2));
 
-			float shoot = rand() % 2;
-			if (shoot == 1) {
+			float shoot = rand() % 3;
+			if (shoot == 0) {
 				missile->position = position;
-				missile->move(Vector2f(direction.y-position.y,direction.x-position.x));
+				missile->move(Vector2f(nrm(direction.x,100,-100),nrm(direction.y,100,-100)));
 				missile->doDraw = true;
 			}
 

@@ -58,7 +58,7 @@ public:
 			gun = new RectangleShape(sf::Vector2f(20, 8));
 			gun->setOrigin(0, 4);
 			if (type == _IA) {
-				speed = 0.5;
+				speed = 0.75;
 			}
 				missile = _missile;
 		}
