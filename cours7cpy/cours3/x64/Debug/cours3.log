@@ -1,0 +1,25 @@
+﻿  Entity.cpp
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(56): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(57): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(58): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(60): warning C4244: '*=' : conversion de 'double' en 'float', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(61): warning C4244: '*=' : conversion de 'double' en 'float', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(64): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(66): warning C4305: '=' : troncation de 'double' à 'float'
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(74): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(76): warning C4305: '=' : troncation de 'double' à 'float'
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(85): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\entity.cpp(96): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+  Game.cpp
+d:\unity\hae_gp2\cours7cpy\cours3\game.cpp(12): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\game.cpp(37): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+  Source.cpp
+d:\unity\hae_gp2\cours7cpy\cours3\curve.hpp(48): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\curve.hpp(49): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\curve.hpp(50): warning C4267: 'argument' : conversion de 'size_t' en 'int', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\source.cpp(60): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\source.cpp(62): warning C4244: 'argument' : conversion de 'long' en 'float', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\source.cpp(110): warning C4244: '-=' : conversion de 'double' en 'float', perte possible de données
+d:\unity\hae_gp2\cours7cpy\cours3\source.cpp(113): warning C4244: '+=' : conversion de 'double' en 'float', perte possible de données
+  Génération de code en cours...
+  cours3.vcxproj -> D:\unity\hae_gp2\cours7cpy\x64\Debug\cours3.exe

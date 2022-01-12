@@ -178,6 +178,7 @@
     <ClInclude Include="imgui\imstb_truetype.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Turtle.hpp" />
+    <ClInclude Include="World.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Entity.cpp" />
@@ -196,6 +197,7 @@
     </ClCompile>
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Turtle.cpp" />
+    <ClCompile Include="World.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

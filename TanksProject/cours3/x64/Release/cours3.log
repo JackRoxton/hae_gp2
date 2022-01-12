@@ -1,41 +1,86 @@
-﻿  pch.cpp
-  Entity.cpp
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\entity.cpp(11): warning C4244: '+=' : conversion de 'double' en 'T', perte possible de données
+﻿  World.cpp
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(158): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-  particle.cpp
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\particle.cpp(2): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\particle.cpp(6): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\particle.cpp(8): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(159): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
               T=float
           ]
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\particle.cpp(35): warning C4244: '+=' : conversion de 'double' en '_Ty', perte possible de données
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(170): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
-              _Ty=float
+              T=float
           ]
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\particle.cpp(36): warning C4244: '+=' : conversion de 'double' en '_Ty', perte possible de données
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(171): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
           with
           [
-              _Ty=float
+              T=float
           ]
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\particle.cpp(65): warning C4267: 'initialisation' : conversion de 'size_t' en 'int', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\particle.cpp(65): warning C4267: 'initialisation' : conversion de 'size_t' en 'const int', perte possible de données
-  Pong.cpp
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(47): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\pong.cpp(51): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-  Turtle.cpp
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(29): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(33): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(61): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
-c:\workspace_gp2\github\hae_gp2\cours6\cours3\turtle.cpp(63): warning C4244: 'argument' : conversion de 'float' en 'int', perte possible de données
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(179): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(180): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(189): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(190): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(203): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(219): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(220): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(230): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(231): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(239): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(240): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(250): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(266): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(267): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
+d:\unity\hae_gp2\tanksproject\cours3\world.cpp(279): warning C4244: 'argument' : conversion de 'int' en 'T', perte possible de données
+          with
+          [
+              T=float
+          ]
   Génération de code en cours
-  27 of 27 functions (100.0%) were compiled.
-    13 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+  1 of 663 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    1 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code
-  cours3.vcxproj -> C:\WorkSpace_gp2\GitHub\hae_gp2\cours6\x64\Release\cours3.exe
+  cours3.vcxproj -> D:\unity\hae_gp2\TanksProject\x64\Release\cours3.exe

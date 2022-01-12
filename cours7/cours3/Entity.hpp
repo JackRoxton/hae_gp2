@@ -1,11 +1,11 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
+#include "World.hpp"
 
 class Entity {
 public:
 	sf::Shape * shape = nullptr;
-	std::vector<Entity> entities;
 	
 	//Base coords
 	int cx = 0, cy = 0;
@@ -22,7 +22,7 @@ public:
 		shape = shp;
 		cx = x;
 		cy = y;
-		entities.push_back(*this);
+		World::entities.push_back(this);
 		syncSprite();
 	}
 
@@ -36,4 +36,5 @@ public:
 	void setCoords(float x, float y);
 	bool hasCollision(float x, float y);
 };
+
 

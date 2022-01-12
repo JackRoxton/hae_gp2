@@ -47,7 +47,7 @@ void Entity::update(double dt) {
 }
 
 void Entity::draw(sf::RenderWindow& window) {
-	for (auto e : entities) {
+	for (auto e : World::entities) {
 		if(shape)
 		window.draw(*e.shape);
 	}
@@ -63,8 +63,8 @@ void Entity::setCoords(float x, float y) {
 }
 
 bool Entity::hasCollision(float _cx, float _cy) {
-	for (int i = 0; i < entities.size(); i++) {
-		if (entities[i].cx == _cx && entities[i].cy == _cy)
+	for (int i = 0; i < World::entities.size(); i++) {
+		if (World::entities[i].cx == _cx && World::entities[i].cy == _cy)
 			return true;
 	}
 	return false;

@@ -1,0 +1,5 @@
+﻿  Game.cpp
+d:\unity\hae_gp2\cours8\cours3\game.cpp(13): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+d:\unity\hae_gp2\cours8\cours3\game.cpp(38): warning C4244: 'argument' : conversion de 'int' en 'float', perte possible de données
+d:\unity\hae_gp2\cours8\cours3\game.cpp(48): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  cours3.vcxproj -> D:\unity\hae_gp2\cours8\x64\Debug\cours3.exe

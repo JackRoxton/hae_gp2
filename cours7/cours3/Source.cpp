@@ -85,6 +85,13 @@ int main() {
 		ImGui::Value("yy", player->yy);
 		ImGui::Value("xr", player->xr);
 		ImGui::Value("yr", player->yr);
+
+		ImGui::Value("cx", ball->cx);
+		ImGui::Value("cy", ball->cy);
+		ImGui::Value("xx", ball->xx);
+		ImGui::Value("yy", ball->yy);
+		ImGui::Value("xr", ball->xr);
+		ImGui::Value("yr", ball->yr);
 		ImGui::End();
 	
 		player->update(dt);
@@ -94,6 +101,7 @@ int main() {
 
 		ImGui::SFML::Render(window);
 		player->draw(window);
+		ball->draw(window);
 
 		window.display();
 		tExitFrame = getTimeStamp();
